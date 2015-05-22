@@ -14,6 +14,7 @@ html, body{
 	padding: 5px;
 	background-color: lightskyblue;
 }
+<!--.nav .active a { background:blue!important } -->
 </style>
 <script type = 'text/javascript'>
 function focusOn(element){
@@ -31,12 +32,11 @@ function focusOn(element){
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href = ''  id='headerTab' onclick="focusOn(this)">Home</a></li>
-					<li><a href="#me">Page 1</a></li>
-					<li><a href="#">Page 2</a></li>
+					<li><a href = ''  id='headerTab' onclick="focusOn(this)">Home</a></li>
+					<li><a href='' id = 'imageTab' onclick="focusOn(this)">Page 1</a></li>
+					<li><a href='' id = 'contactTab'>Page 2</a></li>
 					<li><a class="dropdown-toggle" 
-						data-toggle="dropdown" href = ''  id='projectsTab' 
-						onclick="focusOn(this)">Projects
+						data-toggle="dropdown" href = '' id='projectsTab'>Projects
 						<span class="caret"></span></a>
 						
 						<ul class="dropdown-menu">
