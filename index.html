@@ -44,23 +44,29 @@
 			</div>
 		</div>
 	</nav>
-	<button ng-click='focusOn($event)' id='projectsBut' >Button</button>
-
-	<div style = "clear:both; width: 100%" id = 'header'>
-		<h2 align='center'>
-			Kristian Sooklal's GitHub Page
-		</h2>
+	<div class = 'container' style = "clear:both; width: 100%" id = 'header'>
+		<h1 class = 'jumbotron' align = 'center'>Kristian Sooklal's GitHub Website</h1>
 	</div>
+	
+	<div style = 'margin-left: 15px; margin-bottom: 25px'>
+		<h1>GitHub Projects</h1>
+	</div>
+	
+	<form>
+		<div class = 'input-group' style='margin-left: 15px; margin-bottom: 25px; width:50%; min-width: 400px'>
+			<span class = 'input-group-addon'>Filter:</span>
+			<input ng-model="query.city" class="form-control" />
+		</div>
+	</form>
 
-	<div id = 'projects'>
-		<table border = '1'>
-			<thead>
-				<tr><th>Sample GitHub Projects</th></tr>
-			</thead>
+	<table style = 'max-width: 98%; margin-right: 15px; margin-left: 15px' class = "table table-striped table-hover">
+		<thead>
 			<tr>
-				<td><a href='https://github.com/ksooklal/Stack' target="_blank">Stack</a></td>
+				<th class = 'col-sm-1'>Project</th>
+				<th class = 'col-sm-2'>Project Description</th>
+				<th class = 'col-sm-2'>Technologies Used</th>
 			</tr>
-		</table>
-	</div>
+		</thead>
+	</table>
 </body>
 </html>
