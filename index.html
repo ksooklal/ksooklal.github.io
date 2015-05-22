@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
-<link rel="icon" href="http://ksooklal.comuv.com/Images/CherryBlossoms.JPG">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
-<style type='text/css'>
-html, body{
-	padding: 5px;
-	background-color: lightskyblue;
-}
-<!--.nav .active a { background:blue!important } -->
-</style>
-<script type = 'text/javascript'>
-function focusOn(element){
-	var id = element.id;
-	var targetID = id.substring(0, id.length - 3);
-	$("#" + targetID).focus();
-}
-</script>
+	<link rel="icon" href="http://ksooklal.comuv.com/Images/CherryBlossoms.JPG">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
+	<style type='text/css'>
+	html, body{
+		padding: 5px;
+		background-color: lightskyblue;
+	}
+	<!--.nav .active a { background:blue!important } -->
+	</style>
+
 </head>
-<body>
+<body ng-controller="IndexController">
+	<script>
+		function IndexController($scope){
+			$scope.click = function (element){
+				var id = element.id;
+				var targetID = id.substring(0, id.length - 3);
+				$("#" + targetID).focus();
+				alert("Success");
+			};
+		}
+	</script>
+
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -33,8 +38,8 @@ function focusOn(element){
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href = ''  id='headerTab' onclick="focusOn(this)">Home</a></li>
-					<li><a href='' id = 'imageTab' onclick="focusOn(this)">Page 1</a></li>
+					<li><a href = ''  id='headerTab' ng-click="focusOn(this)">Home</a></li>
+					<li><a href='' id = 'imageTab' ng-click="focusOn(this)">Page 1</a></li>
 					<li><a href='' id = 'contactTab'>Page 2</a></li>
 					<li><a class="dropdown-toggle" 
 						data-toggle="dropdown" href = '' id='projectsTab'>Projects
