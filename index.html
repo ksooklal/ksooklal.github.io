@@ -18,17 +18,18 @@
 		}
 		<!--.nav .active a { background:blue!important } -->
 	</style>
+	<title>Kristian Sooklal's GitHub Page</title>
 </head>
-<body ng-controller="IndexController">
+<body ng-controller="IndexController as ic">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">Kristian Sooklal's GitHub Website</a>
+				<a class="navbar-brand" href="#">Kristian Sooklal's GitHub Website</a>
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href = ''  id='headerTab' ng-click="focusOn($event)">Home</a></li>
-					<li><a href='' id = 'imageTab' ng-click="focusOn($event)">Page 1</a></li>
+					<li><a href = ''  id='headerTab' ng-click="ic.focusOn($event)">Home</a></li>
+					<li><a href='' id = 'imageTab' ng-click="ic.focusOn($event)">Page 1</a></li>
 					<li><a href='' id = 'contactTab'>Page 2</a></li>
 					<li><a class="dropdown-toggle" 
 						data-toggle="dropdown" href = '' id='projectsTab'>Projects
@@ -44,18 +45,19 @@
 			</div>
 		</div>
 	</nav>
-	<div class = 'container' style = "clear:both; width: 100%" id = 'header'>
-		<h1 class = 'jumbotron' align = 'center'>Kristian Sooklal's GitHub Website</h1>
+	
+	<div id = 'image' style='width:100%; text-align: center'>
+		<img src = 'images/Golden Gate Bridge.jpg' height = '250px' alt="Kristian Sooklal" />
 	</div>
 	
-	<div style = 'margin-left: 15px; margin-bottom: 25px'>
-		<h1>GitHub Projects</h1>
+	<div style = 'margin-top: 20px; margin-left: 15px; margin-bottom: 25px'>
+		<h2>GitHub Projects</h2>
 	</div>
 	
 	<form>
 		<div class = 'input-group' style='margin-left: 15px; margin-bottom: 25px; width:50%; min-width: 400px'>
 			<span class = 'input-group-addon'>Filter:</span>
-			<input ng-model="query.city" class="form-control" />
+			<input ng-model="ic.query" class="form-control" />
 		</div>
 	</form>
 
@@ -67,6 +69,9 @@
 				<th class = 'col-sm-2'>Technologies Used</th>
 			</tr>
 		</thead>
+		<tr ng-repeat="item in ic.projects | filter:ic.query">
+			<td><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
+		</tr>
 	</table>
 </body>
 </html>
