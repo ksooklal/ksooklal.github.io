@@ -16,8 +16,14 @@ myAppModule.controller("IndexController", [
 			},
 			{
 				projectName: "LinkedList",
-				projectLink: "",
+				projectLink: "https://github.com/ksooklal/LinkedList",
 				projectDescription: "Implementation of classic LinkedList data structure in Java, with Generic compatibility", 
+				projectTechnologies: "Java"
+			},
+			{
+				projectName: "ArrayList",
+				projectLink: "https://github.com/ksooklal/ArrayList",
+				projectDescription: "Implementation of classic ArrayList data structure in Java, with Generic compatibility", 
 				projectTechnologies: "Java"
 			},
 			{
