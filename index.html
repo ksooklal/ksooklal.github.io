@@ -15,75 +15,102 @@
 	<style type='text/css'>
 		html, body{
 			background-color: lightskyblue;
+			height: 100%;
 		}
 		
 		td{
 			padding: 10px;
 		}
-		<!--.nav .active a { background:blue!important } -->
+
+		#wrap {
+			min-height: 100%;
+		}
+
+		#main {
+			overflow:auto;
+			padding-bottom: 55px; /* Adjustable to customize based on space needs */
+		}
+
+		#footer {
+			position: relative;
+			margin-top: -55px; 
+			height: 55px;
+			clear:both;
+		} 
+
+		/*Opera Fix*/
+		body:before {
+			content:"";
+			height:100%;
+			float:left;
+			width:0;
+			margin-top:-32767px;
+		}
 	</style>
 	<title>Kristian Sooklal's GitHub Page</title>
 </head>
 <body ng-controller="IndexController as ic">
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header" id = 'header'>
-				<a class="navbar-brand" id = 'headerBar' ng-click='ic.focusOn($event)' href="">Kristian Sooklal's GitHub Website</a>
+	<div id = 'wrap'><div id = 'main'>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header" id = 'header'>
+					<a class="navbar-brand" id = 'headerBar' ng-click='ic.focusOn($event)' href="">Kristian Sooklal's GitHub Website</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li><a href='' id = 'headerTab' ng-click="ic.focusOn($event)">Home</a></li>
+						<li><a class="dropdown-toggle" data-toggle="dropdown" href = '' id='projectsTab'>Projects
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li ng-repeat="item in ic.projects"><a href = '' id = '{{item.projectID}}Tab' ng-click='ic.focusOn($event)'>{{item.projectName}}</a></li>
+							</ul>
+						</li>
+						<li><a href='' id = 'codingTab' ng-click="ic.focusOn($event)">Coding Examples</a></li>
+						<li><a href='' id = 'contactTab' ng-click="ic.focusOn($event)">Contact</a></li>
+					</ul>
+				</div>
 			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li><a href='' id = 'headerTab' ng-click="ic.focusOn($event)">Home</a></li>
-					<li><a class="dropdown-toggle" data-toggle="dropdown" href = '' id='projectsTab'>Projects
-						<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li ng-repeat="item in ic.projects"><a href = '' id = '{{item.projectID}}Tab' ng-click='ic.focusOn($event)'>{{item.projectName}}</a></li>
-						</ul>
-					</li>
-					<li><a href='' id = 'codingTab' ng-click="ic.focusOn($event)">Coding Examples</a></li>
-					<li><a href='' id = 'contactTab' ng-click="ic.focusOn($event)">Contact</a></li>
-				</ul>
+		</nav>
+		<br/>
+		<div id = 'image' style='width:100%; text-align: center; '>
+			<img src = 'images/Golden Gate Bridge.jpg' height = '250px' alt="Kristian Sooklal" />
+		</div>
+		<br/>
+		<div style = 'margin-top: 25px; margin-left: 15px; margin-bottom: 25px'>
+			<h2>GitHub Projects</h2>
+		</div>
+		
+		<form>
+			<div class = 'input-group' style='margin-left: 15px; margin-bottom: 15px; width:40%; min-width: 200px'>
+				<span class = 'input-group-addon'>Filter:</span>
+				<input ng-model="ic.query" class="form-control" />
 			</div>
-		</div>
-	</nav>
-	<br/>
-	<div id = 'image' style='width:100%; text-align: center; '>
-		<img src = 'images/Golden Gate Bridge.jpg' height = '250px' alt="Kristian Sooklal" />
-	</div>
-	<br/>
-	<div style = 'margin-top: 25px; margin-left: 15px; margin-bottom: 25px'>
-		<h2>GitHub Projects</h2>
-	</div>
-	
-	<form>
-		<div class = 'input-group' style='margin-left: 15px; margin-bottom: 15px; width:40%; min-width: 200px'>
-			<span class = 'input-group-addon'>Filter:</span>
-			<input ng-model="ic.query" class="form-control" />
-		</div>
-	</form>
+		</form>
 
-	<table style = 'max-width: 98%; margin-right: 15px; margin-left: 15px' class = "table table-striped table-hover">
-		<thead>
-			<tr>
-				<th class = 'col-sm-1'>Project</th>
-				<th class = 'col-sm-2'>Project Description</th>
-				<th class = 'col-sm-2'>Technologies Used</th>
+		<table style = 'max-width: 98%; margin-right: 15px; margin-left: 15px' class = "table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class = 'col-sm-1'>Project</th>
+					<th class = 'col-sm-2'>Project Description</th>
+					<th class = 'col-sm-2'>Technologies Used</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="item in ic.projects | filter:ic.query">
+				<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
 			</tr>
-		</thead>
-		<tr ng-repeat="item in ic.projects | filter:ic.query">
-			<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
-		</tr>
-	</table>
-	
-	<div id = 'coding' style = 'width:98%; margin-left:15px; margin-right:15px; margin-top: 25px; margin-bottom: 25px'>
-		<h3>Coding Examples</h3>
-		<table class ='table'>
-			<tr class = 'success'><td><a href = 'https://www.talentbuddy.co/555f8183208bc1ba7e000020/'>Talent Buddy</a></td></tr>
-			<tr class = 'danger'><td><a href = 'http://www.codecademy.com/ksooklal'>Code Academy</a></td></tr>
 		</table>
-	</div>
-
-	<table class = 'footer' id = 'contact' class = 'table' style = 'background-color: LightBlue; width:100%;'>
-		<tr>
+		
+		<div id = 'coding' style = 'width:98%; margin-left:15px; margin-right:15px; margin-top: 25px; margin-bottom: 25px'>
+			<h3>Coding Examples</h3>
+			<table class ='table'>
+				<tr class = 'success'><td><a href = 'https://www.talentbuddy.co/555f8183208bc1ba7e000020/'>Talent Buddy</a></td></tr>
+				<tr class = 'danger'><td><a href = 'http://www.codecademy.com/ksooklal'>Code Academy</a></td></tr>
+			</table>
+		</div>
+	</div></div>
+	
+	<table class = 'footer' id = 'footer' class = 'table' style = 'background-color: LightBlue; width:100%;'>
+		<tr id = 'contact'>
 			<td><strong style = 'margin-left:10px; vertical-align:center'>Follow Me!</strong></td>
 			<td><a href="https://github.com/ksooklal"><img title="GitHub" alt="GitHub" src="images/GitHub Icon.png" height="35" /></a></td>
 			<td><a href='https://www.linkedin.com/in/kristiansooklal'><img title="LinkedIn" alt="LinkedIn" src="images/LinkedIn Icon.jpg" height="35" /></a></td>	
