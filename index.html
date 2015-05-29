@@ -14,8 +14,11 @@
 	<script src='app/app.js'></script>
 	<style type='text/css'>
 		html, body{
-			padding: 5px;
 			background-color: lightskyblue;
+		}
+		
+		td{
+			padding: 10px;
 		}
 		<!--.nav .active a { background:blue!important } -->
 	</style>
@@ -24,37 +27,35 @@
 <body ng-controller="IndexController as ic">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" id = 'header' href="#">Kristian Sooklal's GitHub Website</a>
+			<div class="navbar-header" id = 'header'>
+				<a class="navbar-brand" id = 'headerBar' ng-click='ic.focusOn($event)' href="">Kristian Sooklal's GitHub Website</a>
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
 					<li><a href='' id = 'headerTab' ng-click="ic.focusOn($event)">Home</a></li>
-					<li><a href='' id = 'contactTab' ng-click="ic.focusOn($event)">Contact</a></li>
-					<li><a class="dropdown-toggle" 
-						ng-click = 'ic.focusOn($event)'
-						data-toggle="dropdown" href = '' id='projectsTab'>Projects
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href = '' id='projectsTab'>Projects
 						<span class="caret"></span></a>
-						
 						<ul class="dropdown-menu">
 							<li ng-repeat="item in ic.projects"><a href = '' id = '{{item.projectID}}Tab' ng-click='ic.focusOn($event)'>{{item.projectName}}</a></li>
 						</ul>
 					</li>
+					<li><a href='' id = 'codingTab' ng-click="ic.focusOn($event)">Coding Examples</a></li>
+					<li><a href='' id = 'contactTab' ng-click="ic.focusOn($event)">Contact</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
-	<div id = 'image' style='width:100%; text-align: center'>
+	<br/>
+	<div id = 'image' style='width:100%; text-align: center; '>
 		<img src = 'images/Golden Gate Bridge.jpg' height = '250px' alt="Kristian Sooklal" />
 	</div>
-	
-	<div style = 'margin-top: 20px; margin-left: 15px; margin-bottom: 25px'>
+	<br/>
+	<div style = 'margin-top: 25px; margin-left: 15px; margin-bottom: 25px'>
 		<h2>GitHub Projects</h2>
 	</div>
 	
 	<form>
-		<div class = 'input-group' style='margin-left: 15px; margin-bottom: 25px; width:40%; min-width: 200px'>
+		<div class = 'input-group' style='margin-left: 15px; margin-bottom: 15px; width:40%; min-width: 200px'>
 			<span class = 'input-group-addon'>Filter:</span>
 			<input ng-model="ic.query" class="form-control" />
 		</div>
@@ -72,19 +73,23 @@
 			<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
 		</tr>
 	</table>
-	<br/>
 	
-	<table id = 'contact' style = 'background-color: LightBlue; max-width: 250px; margin-right: 15px; margin-left: 15px' class = "table">
-		<thead><tr><th style = 'text-align: center'>Follow Me!</th></tr></thead>
-		<tr><th>Profiles:</th></tr>
-		<tr><td><a href = 'https://github.com/ksooklal'>GitHub</a></td></tr>
-		<tr><td><a href = 'https://www.linkedin.com/in/kristiansooklal'>LinkedIn</a></td></tr>
-		<tr><td><a href = 'https://ksooklal.comuv.com/'>Personal Website</a></td></tr>
-		<tr><td><a href = 'https://twitter.com/kristiansooklal'>Twitter</a></td></tr>
-		
-		<tr><th>Coding Samples:</th></tr>
-		<tr><td><a href = 'https://www.talentbuddy.co/555f8183208bc1ba7e000020/'>Talent Buddy</a></td></tr>
-		<tr><td><a href = 'http://www.codecademy.com/ksooklal'>Code Academy</a></td></tr>
+	<div id = 'coding' style = 'width:98%; margin-left:15px; margin-right:15px; margin-top: 25px; margin-bottom: 25px'>
+		<h3>Coding Examples</h3>
+		<table class ='table'>
+			<tr class = 'success'><td><a href = 'https://www.talentbuddy.co/555f8183208bc1ba7e000020/'>Talent Buddy</a></td></tr>
+			<tr class = 'danger'><td><a href = 'http://www.codecademy.com/ksooklal'>Code Academy</a></td></tr>
+		</table>
+	</div>
+
+	<table class = 'footer' id = 'contact' class = 'table' style = 'background-color: LightBlue; width:100%;'>
+		<tr>
+			<td><strong style = 'margin-left:10px; vertical-align:center'>Follow Me!</strong></td>
+			<td><a href="https://github.com/ksooklal"><img title="GitHub" alt="GitHub" src="images/GitHub Icon.png" height="35" /></a></td>
+			<td><a href='https://www.linkedin.com/in/kristiansooklal'><img title="LinkedIn" alt="LinkedIn" src="images/LinkedIn Icon.jpg" height="35" /></a></td>	
+			<td><a href = 'https://twitter.com/kristiansooklal'><img title="Twitter" alt="Twitter" src="images/Twitter Icon.png" height="35" /></a></td>
+			<td><a href = "mailto:k.sooklal@yahoo.com?subject=%20Your%20GitHub%20Website&amp;body=Hi%2C%0A%0AI'm%20reaching%20out%20to%20you%20after%20visiting%20your%20website%20({{ic.domainName}}).%0A%0AYour%20Name%20Here%0AYour%20Email/Contact%20Info%20Here"><img title = 'Email' alt = 'Email' src = 'images/Yahoo! Icon.jpg' height = '35' /></a></td>
+		</tr>
 	</table>
 </body>
 </html>
