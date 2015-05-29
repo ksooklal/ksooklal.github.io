@@ -7,6 +7,8 @@ myAppModule.controller("IndexController", [
 			$(window).scrollTo("#" + targetID);
 		};
 		
+		this.domainName = "kristiansooklal.me";
+		
 		this.projects = [
 			{
 				projectName: "Stack",
