@@ -81,13 +81,13 @@
 		</div>
 		
 		<form>
-			<div class = 'input-group' style='margin-left: 15px; margin-bottom: 15px; width:40%; min-width: 200px'>
+			<div class = 'input-group' style='margin-right:15px; margin-left: 15px; margin-bottom: 15px; width:40%; min-width: 200px'>
 				<span class = 'input-group-addon'>Filter:</span>
 				<input ng-model="ic.query" class="form-control" />
 			</div>
 		</form>
-
-		<table style = 'max-width: 98%; margin-right: 15px; margin-left: 15px' class = "table table-striped table-hover">
+	
+		<table style = 'max-width: 98%; margin-right: 15px; margin-left: 15px;' class = "table table-striped table-hover">
 			<thead>
 				<tr>
 					<th class = 'col-sm-1'>Project</th>
@@ -99,8 +99,8 @@
 				<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
 			</tr>
 		</table>
-		
-		<div id = 'coding' style = 'width:98%; margin-left:15px; margin-right:15px; margin-top: 25px; margin-bottom: 25px'>
+		<br/>
+		<div id = 'coding' style = 'width:98%; margin-left:15px;'>
 			<h3>Coding Examples</h3>
 			<table class ='table'>
 				<tr class = 'success'><td><a href = 'https://www.talentbuddy.co/555f8183208bc1ba7e000020/'>Talent Buddy</a></td></tr>
