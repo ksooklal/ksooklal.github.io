@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Address Conversion Utility</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript">
+			function encodeAddress(){
+				var geocoder = new google.maps.Geocoder();
+				var address = $("#streetAddress").val();;
+
+				geocoder.geocode( { 'address': address}, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						var latitude = results[0].geometry.location.lat();
+						var longitude = results[0].geometry.location.lng();
+						$("#latitude").val(latitude);
+						$("#longitude").val(longitude);
+					} 
+				}); 
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>Enter Street Address:</td>
+				<td><input type = 'text' id = 'streetAddress' /></td>
+			</tr>
+			<tr>
+				<td><input type = 'text' disabled = 'true' id = 'latitude' /></td>
+				<td><input type = 'text' disabled = 'true' id = 'longitude' /></td>
+			</tr>
+			<tr>
+				<td><button type = 'button' onclick = 'encodeAddress()'>Convert to Lat/Long</button></td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

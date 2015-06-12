@@ -16,19 +16,47 @@
 		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script>
+			function ParkingDescription(){
+				this.zoneRestriction = 0;
+				this.streetCleaning = false;
+				this.cost = 0;
+				this.garage = false;
+			}
+		
+			function ParkingDescription(zoneRestriction, streetCleaning, cost, garage){
+				this.cost = cost;
+				this.streetCleaning = streetCleaning;
+				this.garage = false;
+				this.zoneRestriction = zoneRestriction;
+			}
+		
+			function Location(locationName, locationType, latitude, longitude, locationAddress, zIndex, parkingDescription) {
+				this.locationName = locationName;
+				this.locationType = locationType;
+				this.latitude = latitude;
+				this.longitude = longitude;
+				this.locationAddress = locationAddress;
+				this.zIndex = zIndex;
+				this.parkingDescription = parkingDescription;
+			}
+			
+			function Location(locationName, locationType, latitude, longitude, locationAddress){
+				this.parkingDescription = null;
+				this.zIndex = 1;
+				this.latitude = latitude;
+				this.locationType = locationType;
+				this.locationAddress = locationAddress;
+				this.locationName = locationName;
+				this.longitude = longitude;
+			}
+		
+		
+		
+		
 			var globalLat = "";
 			var globalLong = "";
 			
-			function decodeAddress(address){
-				new google.maps.Geocoder().geocode({'address': address}, 
-					function (results, status){
-						var latitude = results[0].geometry.location.lat();
-						var longitude = results[0].geometry.location.lng();
-						document.getElementById("lat").value = latitude;
-						document.getElementById("long").value = longitude;
-					}
-				);
-			}
+			
 			
 			var callback = function (lat, lng){
 				globalLat = lat;
@@ -61,10 +89,11 @@
 				}
 				
 				var coordinates = 	[
-										["COD", 38.9007471, -77.00649629999998, 1]
+										new Location("COD", "Work", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002"),
+										new Location("Kristian", "Home", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002")
 									];
 				var addresses = 	[
-										["COD", "820 First Street NE Washington DC 20002"]
+										["COD", ]
 									];
 				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 				setMarkers(map, coordinates);
@@ -73,43 +102,40 @@
 			var priorityIndex = 1;
 
 			function setMarkers(map, locations) {
-				// Add markers to the map
-
-				// Marker sizes are expressed as a Size of X,Y
-				// where the origin of the image (0,0) is located
-				// in the top left of the image.
-
-				// Origins, anchor positions and coordinates of the marker
-				// increase in the X direction to the right and in
-				// the Y direction down.
-			  
-				var pinColor = "FE7569";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34)
-				);
 				for (var i = 0; i < locations.length; i++) {
-					var beach = locations[i];
-					var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
-					alert(myLatLng);
+					var location = locations[i];
+					var myLatLng = new google.maps.LatLng(location.latitude, location.longitude);
+					var name = location.locationName;
+					var address = location.locationAddress;
+					
+					var myText = "<h3>" + name + "</h3>";
+					var myInfoWindow = new google.maps.InfoWindow({
+						content: myText
+					});
+
+					
+					
 					var marker = new google.maps.Marker({
 						position: myLatLng,
 						map: map,
 						icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-						title: beach[0],
-						zIndex: beach[3]
+						title: location.locationName,
+						zIndex: location.zIndex,
+						infoWindow: myInfoWindow
+					});
+					
+					google.maps.event.addListener(marker, 'click', function() {
+						myInfoWindow.open(map,marker);
 					});
 				}
 			}
 
+			
 			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
 	</head>
 	<body>
-			<div style="width: 80%; max-height:90%" id="map-canvas"></div>
-			<input id = 'lat' value="" />
-			<input id = 'long' value = ""/>
+			<div style="width: 80%; max-height:90%; text-align: center;" id="map-canvas"></div>
 </form> 
 	</body>
 </html>
