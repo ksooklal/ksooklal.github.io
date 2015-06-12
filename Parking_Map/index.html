@@ -15,7 +15,35 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js'></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src='../js/appConversion.js'></script>
 		<script>
+			var map;
+			
+				
+			(function () {
+				google.maps.Map.prototype.markers = new Array();
+
+				google.maps.Map.prototype.addMarker = function(marker) {
+					this.markers[this.markers.length] = marker;
+				};
+
+				google.maps.Map.prototype.getMarkers = function() {
+					return this.markers
+				};
+
+				google.maps.Map.prototype.clearMarkers = function() {
+					if(infowindow) {
+					infowindow.close();
+					}
+
+					for(var i=0; i<this.markers.length; i++){
+						this.markers[i].set_map(null);
+					}
+				};
+			})();
+		
+		
+		
 			function ParkingDescription(){
 				this.zoneRestriction = 0;
 				this.streetCleaning = false;
@@ -55,6 +83,7 @@
 					zoom: 12,
 					center: new google.maps.LatLng(38.9007471, -77.00649629999998)
 				}
+				map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 				
 				var coordinates = 	[
 										new Location("COD", "Work", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002"),
@@ -63,7 +92,6 @@
 				var addresses = 	[
 										["COD", "820 First St. NE, Washington DC 20002"]
 									];
-				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 				setMarkers(map, coordinates);
 			}
 
@@ -75,14 +103,14 @@
 					var myLatLng = new google.maps.LatLng(location.latitude, location.longitude);
 					var name = location.locationName;
 					var address = location.locationAddress;
-					
-					var myText = "<h3>" + name + "</h3>";
+					var lat = encodeAddress(address);
+					var myText = "<h3>" + name + "</h3><br/>" + lat;
 					var myInfoWindow = new google.maps.InfoWindow({
 						content: myText
 					});
 
-					
-					
+					map.addMarker(createMarker(myText, myLatLng));
+					/*
 					var marker = new google.maps.Marker({
 						position: myLatLng,
 						map: map,
@@ -91,11 +119,22 @@
 						zIndex: location.zIndex,
 						infoWindow: myInfoWindow
 					});
-					
+					marker.setMap(map);*/
 					google.maps.event.addListener(marker, 'click', function() {
 						myInfoWindow.open(map,marker);
 					});
 				}
+			}
+			
+			function createMarker(name, latlng) {
+				var marker = new google.maps.Marker({position: latlng, map: map});
+				google.maps.event.addListener(marker, "click", function() {
+					if (infowindow) 
+						infowindow.close();
+					infowindow = new google.maps.InfoWindow({content: name});
+					infowindow.open(map, marker);
+				});
+				return marker;
 			}
 			
 			google.maps.event.addDomListener(window, 'load', initialize);
