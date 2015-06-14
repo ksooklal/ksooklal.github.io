@@ -7,52 +7,37 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/appConversion.js"></script>
 		<script type="text/javascript">
-			function executeAddressConversion(address){
-				return encodeAddress(address);
+			function convertAddress(){
+				var address = $("#streetAddress").val();
+				var geographicLocation = getAddressConversion(address);
+				$("#latitude").val(geographicLocation.latitude);
+				$("#longitude").val(geographicLocation.longitude);
 			}
 			
-			function encodeAddress(address){
-				executeAddressConversion(address);
-				var latitude = getLatitude();
-				var longitude = getLongitude();
-				if (longitude === undefined || typeof(longitude) === undefined || typeof(latitude) === undefined || latitude === undefined){
-					return null;
-				}
-				var location = "" + latitude + ", " + longitude;
-				return locations;
-			}	
-			
-			function replaceAll(find, replace, str) {
-				return str.replace(new RegExp(find, 'g'), replace);
-			}
-
-			function encodeAddresses(addresses){
-				var locations = [];
-				addresses.forEach(function(entry){
-					executeAddressConversion(entry);
-				});
-				var latitude = getLatitude();
-				var longitude = getLongitude();
-				if (longitude === undefined || typeof(longitude) === undefined || typeof(latitude) === undefined || latitude === undefined){
-					return null;
-				}
-				locations.push("" + latitude + ", " + longitude);
-				return locations;
+			function GeographicLocation(){
+				this.latitude = "";
+				this.longitude = "";
 			}
 			
-			function getJSON(addressString){
+			function GeographicLocation(lat, lng){
+				this.latitude = lat;
+				this.longitude = lng;
+			}
+			
+			function getAddressConversion(addressString){
 				var address = replaceAll(' ', '+', addressString);
 				var apiKey = "AIzaSyAQeBBy5gncPrgeyZCJdTx6zmo2n6t3faA";
 				var url = "https://maps.googleapis.com/maps/api/geocode/xml?address=" + address + "&key=" + apiKey;
 				console.log(url);
-				var eke = "";
+				var eke = new GeographicLocation();
 				$.ajax({
 					dataType: "xml",
 					url: url,
 					async: false,
 					data: "",
 					success: function (data){
-						eke = $(data).find("location>lat").text();
+						eke.latitude = $(data).find("location>lat").text();
+						eke.longitude = $(data).find("location>lng").text();
 					}
 				});
 				return eke;
@@ -70,7 +55,7 @@
 				<td><input type = 'text' disabled = 'true' id = 'longitude' /></td>
 			</tr>
 			<tr>
-				<td><button type = 'button' onclick = 'encodeAddress()'>Convert to Lat/Long</button></td>
+				<td><button type = 'button' onclick = 'convertAddress()'>Convert to Lat/Long</button></td>
 				<td></td>
 			</tr>
 		</table>

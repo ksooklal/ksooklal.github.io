@@ -82,7 +82,7 @@
 			function initialize() {
 				var myOptions = {
 					zoom: 12,
-					center: new google.maps.LatLng(38.9007471, -77.00649629999998),
+					center: new google.maps.LatLng(38.934, -77),
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 					//mapTypeId: google.maps.MapTypeId.SATELLITE
 				};
@@ -116,9 +116,8 @@
 		</script>
 	</head>
 	<body onload="initialize()">
-		<div id="map_canvas" style="width:50%; height:80%;float:left;"></div>
-		<br style="clear: both;"/>
-		<button onclick="map.clearMarkers();">clear</button><br />
+		<div id = 'header' style = 'width: 100%'><h2 align = 'center'>C.O.D. Parking Map</h2></div>
+		<div id = "map_canvas" style = "min-width: 200px; width: 100%; min-height:200px; height:90%; "></div>
 		<a href="http://stackoverflow.com/questions/1544739/google-maps-api-v3-how-to-remove-all-markers/1544885#1544885"></a>
 	</body>
 </html>

@@ -18,3 +18,7 @@ function getLatitude(){
 function getLongitude(){
 	return globalPosition.split(',')[1];
 }
+
+function replaceAll(find, replace, str) {
+	return str.replace(new RegExp(find, 'g'), replace);
+}
