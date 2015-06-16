@@ -99,7 +99,7 @@
 				</tr>
 			</thead>
 			<tr ng-repeat="item in ic.projects | filter:ic.query">
-				<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td>{{item.projectDescription}}</td><td>{{item.projectTechnologies}}</td>
+				<td id ='{{item.projectID}}'><a href = "{{item.projectLink}}" target = "_blank">{{item.projectName}}</a></td><td><p ng-bind-html="item.projectDescription | unsafe"></p></td><td>{{item.projectTechnologies}}</td>
 			</tr>
 		</table>
 		<br/>

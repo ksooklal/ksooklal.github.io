@@ -1,4 +1,9 @@
 var myAppModule = angular.module("myApp", []);
+myAppModule.filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
+});
 myAppModule.controller("IndexController", [
 	function (){
 		this.focusOn = function(event){
@@ -42,7 +47,7 @@ myAppModule.controller("IndexController", [
 				projectID: "AddressConversionUtility",
 				projectName: "Address Conversion Utility",
 				projectLink: "https://github.com/ksooklal/AddressConversionUtility",
-				projectDescription: "Converts a street address to latitude/longitude coordinates. View demo here: http://kristiansooklal.me/AddressConversionUtility/",
+				projectDescription: "Converts a street address to latitude/longitude coordinates. View <a href = 'http://kristiansooklal.me/AddressConversionUtility/'>demo</a>",
 				projectTechnologies: "JavaScript, XML, Ajax"
 			}
 		];
