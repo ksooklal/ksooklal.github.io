@@ -62,6 +62,16 @@
 				this.parkingDescription = parkingDescription;
 			}
 			
+			function Location(locationName, locationType, latitude, longitude, locationAddress, parkingDescription) {
+				this.locationName = locationName;
+				this.locationType = locationType;
+				this.latitude = latitude;
+				this.longitude = longitude;
+				this.locationAddress = locationAddress;
+				this.zIndex = 1;
+				this.parkingDescription = parkingDescription;
+			}
+			
 			function Location(locationName, locationType, latitude, longitude, locationAddress){
 				this.parkingDescription = null;
 				this.zIndex = 1;
@@ -76,6 +86,7 @@
 				var locations = [];
 				locations.push(new Location("COD", "Work", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002"));
 				locations.push(new Location("Kristian", "Home", 38.9931229, -77.0234289, "820 First Street NE Washington DC 20002"));
+				locations.push(new Location("Pierce St NE & First St NE", "Parking", 38.9046994, -77.0062291, "88 Pierce Street NE Washington DC 20002"));
 				return locations;
 			}
 
