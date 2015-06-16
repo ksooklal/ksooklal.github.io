@@ -7,11 +7,43 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/utilities.js"></script>
 		<script type="text/javascript">
+			$(document).ready(
+				function() {
+					$("#coordinates").hide();
+				}
+			);
+			
+			function reset(){
+				$("#latitude").val("");
+				$("#longitude").val("");
+				$("#streetAddress").val("");
+				$("#coordinates").hide();
+			}
+			
+			function handleKeyPress(e){
+				if (e.which == 13 || e.keyCode == 13){
+					$("#convertButton").click();
+					return true;
+				}
+				e = e || window.event;
+				if (e.keyCode == 13){
+					$("#convertButton").click();
+					return true;
+				}
+				return false;
+			}
+			
 			function convertAddress(){
 				var address = $("#streetAddress").val();
-				var geographicLocation = getAddressConversion(address);
-				$("#latitude").val(geographicLocation.latitude);
-				$("#longitude").val(geographicLocation.longitude);
+				if (address.length > 3){
+					var geographicLocation = getAddressConversion(address);
+					$("#latitude").val(geographicLocation.latitude);
+					$("#longitude").val(geographicLocation.longitude);
+					$("#coordinates").show();
+					return true;
+				}
+				$("#coordinates").hide();
+				return false;
 			}
 			
 			function GeographicLocation(){
@@ -44,19 +76,19 @@
 			}
 		</script>
 	</head>
-	<body>
-		<table>
+	<body style = 'background-color: #A0CFEC; padding: 10px; min-width: 250px; min-height: 250px;'>
+		<div style = "width:100%; text-align:center;" ><h1>Address Conversion Utility</h1></div>
+		<div style = "width:100%; text-align:left; margin-left: 10px; margin-top: 25px" ><h3>Convert Street Address to Latitude/Longitude Coordinates</h3></div>
+		<table style = 'min-width: 200px; margin-left: 10px; margin-top: 25px; text-align: left'>
 			<tr>
-				<td>Enter Street Address:</td>
-				<td><input type = 'text' id = 'streetAddress' /></td>
+				<td>Enter Street Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><input type = 'text' size = '30' id = 'streetAddress' onkeypress="handleKeyPress(event)" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><button type = 'button' id = 'convertButton' onclick = 'convertAddress()'>Convert</button></td>
 			</tr>
-			<tr>
+			<tr id = 'coordinates'>
 				<td><input type = 'text' disabled = 'true' id = 'latitude' /></td>
 				<td><input type = 'text' disabled = 'true' id = 'longitude' /></td>
-			</tr>
-			<tr>
-				<td><button type = 'button' onclick = 'convertAddress()'>Convert to Lat/Long</button></td>
-				<td></td>
+				<td><button type = 'button' id = 'resetButton' onclick = 'reset()'>Reset</button></td>
 			</tr>
 		</table>
 	</body>
