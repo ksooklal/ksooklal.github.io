@@ -42,7 +42,7 @@ myAppModule.controller("IndexController", [
 				projectID: "AddressConversionUtility",
 				projectName: "Address Conversion Utility",
 				projectLink: "https://github.com/ksooklal/AddressConversionUtility",
-				projectDescription: "Converts a street address to latitude/longitude coordinates. View <a href = 'http://kristiansooklal.me/AddressConversionUtility/'>demo</a>",
+				projectDescription: "Converts a street address to latitude/longitude coordinates. View demo here: http://kristiansooklal.me/AddressConversionUtility/",
 				projectTechnologies: "JavaScript, XML, Ajax"
 			}
 		];
