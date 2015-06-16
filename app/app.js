@@ -37,6 +37,13 @@ myAppModule.controller("IndexController", [
 				projectLink: "https://github.com/ksooklal/Change-Picture-Example",
 				projectDescription: "Adding custom action to picture object using JQuery",
 				projectTechnologies: "HTML, JavaScript, JQuery"
+			},
+			{
+				projectID: "AddressConversionUtility",
+				projectName: "Address Conversion Utility",
+				projectLink: "https://github.com/ksooklal/AddressConversionUtility",
+				projectDescription: "Converts a street address to latitude/longitude coordinates. View <a href = 'http://kristiansooklal.me/AddressConversionUtility/'>demo</a>",
+				projectTechnologies: "JavaScript, XML, Ajax"
 			}
 		];
 	}
