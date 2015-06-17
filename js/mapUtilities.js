@@ -1,3 +1,7 @@
+function replaceAll(find, replace, str) {
+	return str.replace(new RegExp(find, 'g'), replace);
+}
+
 function ParkingDescription(){
 	this.zoneRestriction = 0;
 	this.streetCleaning = false;
