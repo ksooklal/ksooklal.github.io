@@ -2,6 +2,8 @@ var locations = [];
 locations.push(new Location("COD", "Work", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002"));
 locations.push(new Location("Kristian", "Home", 38.9931229, -77.0234289, "815 Thayer Avenue Apt 520 Silver Spring MD 20910"));
 locations.push(new Location("Baxter", "Home", 38.90051, -77.01837, "450 Massachusetts Avenue Northwest Washington DC 20001"));
+locations.push(new Location("Alex Chan", "Home", 38.846505, -77.084493, "3467 25th Court South Arlington VA 22206"));
+locations.push(new Location("Salvador", "Home", 38.831613, -76.910765, "5560 Lanier Ave Suitland MD 20746"));
 
 
 
