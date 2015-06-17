@@ -14,6 +14,8 @@
 			}
 		</style>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="../js/mapUtilities.js"></script>
+		<script type="text/javascript" src="../js/mapLocations.js"></script>
 		<script type="text/javascript">
 			var infowindow;
 			(function () {
@@ -38,69 +40,7 @@
 				};
 			})();
 			
-			function ParkingDescription(){
-				this.zoneRestriction = 0;
-				this.streetCleaning = false;
-				this.cost = 0;
-				this.garage = false;
-			}
-		
-			function ParkingDescription(zoneRestriction, streetCleaning, cost, side){
-				this.cost = cost;
-				this.streetCleaning = streetCleaning;
-				this.garage = false;
-				this.zoneRestriction = zoneRestriction;
-				this.side = side;
-			}
 			
-			function ParkingDescription(zoneRestriction, streetCleaning, cost){
-				this.cost = cost;
-				this.streetCleaning = streetCleaning;
-				this.garage = false;
-				this.zoneRestriction = zoneRestriction;
-				this.side='Right';
-			}
-		
-			function Location(locationName, locationType, latitude, longitude, locationAddress, zIndex, parkingDescription) {
-				this.locationName = locationName;
-				this.locationType = locationType;
-				this.latitude = latitude;
-				this.longitude = longitude;
-				this.locationAddress = locationAddress;
-				this.zIndex = zIndex;
-				this.parkingDescription = parkingDescription;
-			}
-			
-			function Location(locationName, locationType, latitude, longitude, locationAddress, parkingDescription) {
-				this.locationName = locationName;
-				this.locationType = locationType;
-				this.latitude = latitude;
-				this.longitude = longitude;
-				this.locationAddress = locationAddress;
-				this.zIndex = 1;
-				this.parkingDescription = parkingDescription;
-			}
-			
-			function Location(locationName, locationType, latitude, longitude, locationAddress){
-				this.parkingDescription = null;
-				this.zIndex = 1;
-				this.latitude = latitude;
-				this.locationType = locationType;
-				this.locationAddress = locationAddress;
-				this.locationName = locationName;
-				this.longitude = longitude;
-			}
-			
-			function getLocations(){
-				var locations = [];
-				locations.push(new Location("COD", "Work", 38.9007471, -77.00649629999998, "820 First Street NE Washington DC 20002"));
-				locations.push(new Location("Kristian", "Home", 38.9931229, -77.0234289, "820 First Street NE Washington DC 20002"));
-				locations.push(new Location("Pierce St NE & First St NE", "Parking", 38.9046994, -77.0062291, "88 Pierce Street NE Washington DC 20002"));
-				locations.push(new Location("Pierce St NE", "Parking", 38.904659, -77.008428, "25 Pierce Street NE Washington DC 20002"));
-				locations.push(new Location("Pierce St NE & North Capitol St", "Parking", 38.904737, -77.008810,  "8 Pierce Street NE Washington DC 20002"));
-				locations.push(new Location("Pierce St NE & North Capitol St", "Parking", 38.904671, -77.008881,  "5 Pierce Street NE Washington DC 20002"));
-				return locations;
-			}
 
 			function initialize() {
 				var myOptions = {
