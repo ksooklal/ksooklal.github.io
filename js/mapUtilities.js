@@ -2,6 +2,23 @@ function replaceAll(find, replace, str) {
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
+var ColorEnums = {
+	BLACK: "Home",
+	RED: "Cheap Parking",
+	YELLOW: "Zone Parking",
+	ORANGE: "Time-Restricted Parking",
+	GREEN: "Free Parking",
+	BLUE: "COD Location"
+};
+
+var ColorMappings = [];
+ColorMappings[ColorEnums.BLACK] = "#000000";
+ColorMappings[ColorEnums.RED] = "#FF0000";
+ColorMappings[ColorEnums.YELLOW] = "#FFFF00";
+ColorMappings[ColorEnums.ORANGE] = "#FFA500";
+ColorMappings[ColorEnums.GREEN] = "#008000";
+ColorMappings[ColorEnums.BLUE] = "#0000FF";
+
 function ParkingDescription(){
 	this.zoneRestriction = 0;
 	this.streetCleaning = false;
