@@ -25,8 +25,9 @@ locations.push(new Location("First St NW & K St NW", "Parking", 38.90257, -77.01
 locations.push(new Location("First St NW", "Parking", 38.90285, -77.01222, "1026 First St NW Washington DC 20001"));
 locations.push(new Location("First St NW & L St NW", "Parking", 38.9041, -77.0122, "1100 First St NW Washington DC 20001"));
 locations.push(new Location("N St NE", "Parking", 38.90722, -77.00808, "25 N St NE Washington DC 20002"));
-locations.push(new Location("I St NW", "Parking", 38.901276, -77.012629, "102 I St NW, Washington, DC 20001"));
-locations.push(new Location("I St NW", "Parking", 38.90135, -77.013, "113 I St NW, Washington, DC 20001"));
+locations.push(new Location("I St NW", "Parking", 38.901276, -77.012629, "102 I St NW Washington DC 20001"));
+locations.push(new Location("I St NW", "Parking", 38.90135, -77.013, "113 I St NW Washington DC 20001"));
+locations.push(new Location("I St NW", "Parking", 38.908351, -77.007034, "66 New York Ave NE Washington DC 20002"));
 
 function getLocations(){
 	return locations;
