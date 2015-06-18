@@ -17,6 +17,7 @@ locations.push(new Location("North Capitol St NE", "Parking", 38.904219, -77.008
 locations.push(new Location("North Capitol St NW", "Parking", 38.904064, -77.009171, "1072 North Capitol St NW Washington DC 20002"));
 locations.push(new Location("L Street Alley", "Parking", 38.904001, -77.011421, "1100 McKenna Walk NW Washington DC 20001"));
 locations.push(new Location("L Street", "Parking", 38.903840, -77.011621, "87 L Street NW Washington DC 20001"));
+locations.push(new Location("First St NW (Walmart)", "Parking", 38.900974, -77.012227, "840 First St NW, Washington, DC 20536"));
 
 function getLocations(){
 	return locations;
