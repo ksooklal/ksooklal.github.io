@@ -17,9 +17,11 @@ locations.push(new Location("North Capitol St NE", "Parking", 38.904219, -77.008
 locations.push(new Location("North Capitol St NW", "Parking", 38.904064, -77.009171, "1072 North Capitol St NW Washington DC 20002"));
 locations.push(new Location("L Street Alley", "Parking", 38.904001, -77.011421, "1100 McKenna Walk NW Washington DC 20001"));
 locations.push(new Location("L Street", "Parking", 38.903840, -77.011621, "87 L Street NW Washington DC 20001"));
-locations.push(new Location("First St NW (Walmart)", "Parking", 38.900974, -77.012227, "840 First St NW, Washington, DC 20536"));
-locations.push(new Location("Rhode Island Ave Metro Station", "Parking", 38.9196, -76.9957, "2300 Washington Pl NE, Washington, DC 20018"));
-locations.push(new Location("Anacostia Metro Station", "Parking", 38.862168, -76.995205, "1101 Howard Rd SE, Washington, DC 20020"));
+locations.push(new Location("First St NW (Walmart)", "Parking", 38.900974, -77.012227, "840 First St NW Washington DC 20536"));
+locations.push(new Location("Rhode Island Ave Metro Station", "Parking", 38.9196, -76.9957, "2300 Washington Pl NE Washington DC 20018"));
+locations.push(new Location("Anacostia Metro Station", "Parking", 38.862168, -76.995205, "1101 Howard Rd SE Washington DC 20020"));
+locations.push(new Location("First Terrace NW", "Parking", 38.9027, -77.01125, "1-63 First Terrace NW Washington DC 20001"));
+locations.push(new Location("First St NW & K St NW", "Parking", 38.90257, -77.0118, "75 K St NW Washington DC 20001"));
 
 function getLocations(){
 	return locations;
