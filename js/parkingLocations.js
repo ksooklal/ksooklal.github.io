@@ -22,8 +22,11 @@ locations.push(new Location("Rhode Island Ave Metro Station", "Parking", 38.9196
 locations.push(new Location("Anacostia Metro Station", "Parking", 38.862168, -76.995205, "1101 Howard Rd SE Washington DC 20020"));
 locations.push(new Location("First Terrace NW", "Parking", 38.9027, -77.01125, "1-63 First Terrace NW Washington DC 20001"));
 locations.push(new Location("First St NW & K St NW", "Parking", 38.90257, -77.0118, "75 K St NW Washington DC 20001"));
-locations.push(new Location("First St NW", "Parking", 38.9032382, -77.01222, "1026 First St NW Washington DC 20001"));
-locations.push(new Location("First St NW & L St NW", "Parking", 38.9041, -77.0122, "1100 First St NW, Washington, DC 20001"));
+locations.push(new Location("First St NW", "Parking", 38.90285, -77.01222, "1026 First St NW Washington DC 20001"));
+locations.push(new Location("First St NW & L St NW", "Parking", 38.9041, -77.0122, "1100 First St NW Washington DC 20001"));
+locations.push(new Location("N St NE", "Parking", 38.90722, -77.00808, "25 N St NE Washington DC 20002"));
+locations.push(new Location("I St NW", "Parking", 38.901276, -77.012629, "102 I St NW, Washington, DC 20001"));
+locations.push(new Location("I St NW", "Parking", 38.90135, -77.013, "113 I St NW, Washington, DC 20001"));
 
 function getLocations(){
 	return locations;
