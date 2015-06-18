@@ -19,6 +19,7 @@ locations.push(new Location("L Street Alley", "Parking", 38.904001, -77.011421, 
 locations.push(new Location("L Street", "Parking", 38.903840, -77.011621, "87 L Street NW Washington DC 20001"));
 locations.push(new Location("First St NW (Walmart)", "Parking", 38.900974, -77.012227, "840 First St NW, Washington, DC 20536"));
 locations.push(new Location("Rhode Island Ave Metro Station", "Parking", 38.9196, -76.9957, "2300 Washington Pl NE, Washington, DC 20018"));
+locations.push(new Location("Anacostia Metro Station", "Parking", 38.862168, -76.995205, "1101 Howard Rd SE, Washington, DC 20020"));
 
 function getLocations(){
 	return locations;
