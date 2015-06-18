@@ -8,6 +8,7 @@ locations.push(new Location("Salvador", "Home", 38.831613, -76.910765, "5560 Lan
 
 
 
+locations.push(new Location("Broken Meter", "Parking", 38.899884, -77.006889, "750 First Street NE Washington DC 20002"));
 locations.push(new Location("Pierce St NE & First St NE", "Parking", 38.9046994, -77.0062291, "88 Pierce Street NE Washington DC 20002"));
 locations.push(new Location("Pierce St NE", "Parking", 38.904659, -77.008428, "25 Pierce Street NE Washington DC 20002"));
 locations.push(new Location("Pierce St NE & North Capitol St", "Parking", 38.904737, -77.008810,  "8 Pierce Street NE Washington DC 20002"));
