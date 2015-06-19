@@ -44,7 +44,7 @@
 			function initialize() {
 				var myOptions = {
 					zoom: 16,
-					center: new google.maps.LatLng(38.902, -77.01),
+					center: new google.maps.LatLng(38.904, -77.01),
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 					//mapTypeId: google.maps.MapTypeId.SATELLITE
 				};
@@ -53,24 +53,27 @@
 
 				var locations = getLocations();
 				for (var i = 0; i < locations.length; i++) {
-					var latlng = new google.maps.LatLng(locations[i].latitude, locations[i].longitude);
-					console.log(locations[i].longitude);
-					console.log(locations[i].latitude);
-					map.addMarker(createMarker(locations[i].locationName, latlng));
+					map.addMarker(createMarker(locations[i]));
 				 }
 			}
+			
+			
 
-			function createMarker(name, latlng) {
+			function createMarker(location) {
+				var latLng = new google.maps.LatLng(location.latitude, location.longitude);
+				var content = getContentOfMarker(location);
+				var color = getColorOfMarker(location);
+				
 				var marker = new google.maps.Marker(
 					{
-						position: latlng, 
+						position: latLng, 
 						map: map
 					}
 				);
 				google.maps.event.addListener(marker, "click", function() {
 					if (infowindow) 
 						infowindow.close();
-					infowindow = new google.maps.InfoWindow({content: name});
+					infowindow = new google.maps.InfoWindow({content: content});
 					infowindow.open(map, marker);
 				});
 				return marker;

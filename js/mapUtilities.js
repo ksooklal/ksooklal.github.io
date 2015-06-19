@@ -2,72 +2,105 @@ function replaceAll(find, replace, str) {
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
-var ColorEnums = {
+var ColorsEnum = {
 	BLACK: "Home",
 	RED: "Cheap Parking",
 	YELLOW: "Zone Parking",
 	ORANGE: "Time-Restricted Parking",
 	GREEN: "Free Parking",
-	BLUE: "COD Location"
+	BLUE: "COD Location",
+	WHITE: ""
 };
 
+function getContentOfMarker(location){
+	var locationType = location.locationType;
+	if (locationType != null && typeof(locationType) != undefined && locationType != undefined && locationType.length > 0){
+		if (locationType === "Home"){
+			return location.locationName;
+		}
+		if (locationType === "Work"){
+			return "<b>COD</b>";
+		}
+		if (locationType === "Parking"){
+			if (location.parkingDescription != null){
+				var description = location.parkingDescription;
+				alert("YAY" + description.cost);
+				if (description.cost > 0 && description.cost < 6){
+					return "" + location.locationName + "<br/>Cost: " + description.cost + "<br/>" + location.locationAddress;
+				}
+				if (description.timeRestriction > 0){
+					if (description.zoneRestriction === true){
+						return "" + location.locationName + "<br/>Zone Restricted Parking: Free Parking limit of <b>" + description.timeRestriction + " hours</b>.<br/>" + location.locationAddress;
+					}
+					return "" + location.locationName + "<br/>Free Parking limit of <b>" + description.timeRestriction + " hours</b><br/>" + location.locationAddress;
+				}
+				var content = "" + location.locationName;
+				if (description.streetCleaning != false){
+					
+				}
+				content = content + "<br/>" + location.locationAddress;
+			}
+		}
+	}
+	return location.locationAddress;
+}
+
+function getColorOfMarker(location){
+	var locationType = location.locationType;
+	if (locationType != null && typeof(locationType) != undefined && locationType != undefined && locationType.length > 0){
+		if (locationType === "Home"){
+			return ColorMappings[ColorsEnum.BLACK];
+		}
+		if (locationType === "Work"){
+			return ColorMappings[ColorsEnum.BLUE];
+		}
+		if (locationType === "Parking"){
+			
+		}
+	}
+	return ColorMappings[ColorsEnum.WHITE];
+}
+
 var ColorMappings = [];
-ColorMappings[ColorEnums.BLACK] = "#000000";
-ColorMappings[ColorEnums.RED] = "#FF0000";
-ColorMappings[ColorEnums.YELLOW] = "#FFFF00";
-ColorMappings[ColorEnums.ORANGE] = "#FFA500";
-ColorMappings[ColorEnums.GREEN] = "#008000";
-ColorMappings[ColorEnums.BLUE] = "#0000FF";
+ColorMappings[ColorsEnum.BLACK] = "#000000";
+ColorMappings[ColorsEnum.RED] = "#FF0000";
+ColorMappings[ColorsEnum.YELLOW] = "#FFFF00";
+ColorMappings[ColorsolorMappings[ColorsEnum.GREEN] = "#008000";
+ColorMappings[ColorsEnum.BLUE] = "#0000FF";
+ColorMappings[ColorsEnum.WHITE] = "#FFFFFF"Enum.ORANGE] = "#FFA500";
+C;
 
-function ParkingDescription(){
-	this.zoneRestriction = 0;
-	this.streetCleaning = false;
-	this.cost = 0;
-	this.garage = false;
-}
+if (Object.freeze)
+  Object.freeze(ColorsEnum);
 
-function ParkingDescription(zoneRestriction, streetCleaning, cost, side){
-	this.cost = cost;
-	this.streetCleaning = streetCleaning;
-	this.garage = false;
+function ParkingDescription(cost, zoneRestriction, timeRestriction, streetCleaning, side, garage, noParkingRange1, noParkingRange2, text){
 	this.zoneRestriction = zoneRestriction;
+	this.streetCleaning = streetCleaning;
+	this.cost = cost;
+	this.garage = garage;
+	this.timeRestriction = timeRestriction;
+	this.text = text;
 	this.side = side;
+	this.noParkingRange1 = noParkingRange1;
+	this.noParkingRange2 = noParkingRange2;
 }
 
-function ParkingDescription(zoneRestriction, streetCleaning, cost){
-	this.cost = cost;
-	this.streetCleaning = streetCleaning;
-	this.garage = false;
-	this.zoneRestriction = zoneRestriction;
-	this.side='Right';
+
+function ParkingLocation(element){
+	element.location 
 }
 
-function Location(locationName, locationType, latitude, longitude, locationAddress, zIndex, parkingDescription) {
+new ParkingLocation({location: "me" } );
+
+
+function Location(locationName, locationType, latitude, longitude, locationAddress, parkingDescription, zIndex) {
 	this.locationName = locationName;
 	this.locationType = locationType;
 	this.latitude = latitude;
 	this.longitude = longitude;
 	this.locationAddress = locationAddress;
-	this.zIndex = zIndex;
+	if (zIndex === null || typeof(zIndex) === undefined || zIndex === undefined){
+		this.zIndex = 1;
+	}
 	this.parkingDescription = parkingDescription;
-}
-
-function Location(locationName, locationType, latitude, longitude, locationAddress, parkingDescription) {
-	this.locationName = locationName;
-	this.locationType = locationType;
-	this.latitude = latitude;
-	this.longitude = longitude;
-	this.locationAddress = locationAddress;
-	this.zIndex = 1;
-	this.parkingDescription = parkingDescription;
-}
-
-function Location(locationName, locationType, latitude, longitude, locationAddress){
-	this.parkingDescription = null;
-	this.zIndex = 1;
-	this.latitude = latitude;
-	this.locationType = locationType;
-	this.locationAddress = locationAddress;
-	this.locationName = locationName;
-	this.longitude = longitude;
 }
