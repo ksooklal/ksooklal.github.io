@@ -2,6 +2,10 @@ function replaceAll(find, replace, str) {
 	return str.replace(new RegExp(find, 'g'), replace);
 }
 
+function formatMoney(amount){
+	return "$" + amount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
 var ColorsEnum = {
 	BLACK: "Home",
 	RED: "Cheap Parking",
@@ -14,31 +18,37 @@ var ColorsEnum = {
 
 function getContentOfMarker(location){
 	var locationType = location.locationType;
-	if (locationType != null && typeof(locationType) != undefined && locationType != undefined && locationType.length > 0){
+	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
 		if (locationType === "Home"){
-			return location.locationName;
+			return "<font size = '3' color = 'blue'><b>" + location.locationName + "</b></font>";
 		}
 		if (locationType === "Work"){
-			return "<b>COD</b>";
+			return "<font size = '3'><b>COD</b></font>";
 		}
 		if (locationType === "Parking"){
 			if (location.parkingDescription != null){
 				var description = location.parkingDescription;
-				alert("YAY" + description.cost);
 				if (description.cost > 0 && description.cost < 6){
-					return "" + location.locationName + "<br/>Cost: " + description.cost + "<br/>" + location.locationAddress;
+					return "<font size = '3'><b>" + location.locationName + "</b></font><br/>Cost: " + formatMoney(description.cost) + "<br/>" + location.locationAddress;
 				}
 				if (description.timeRestriction > 0){
 					if (description.zoneRestriction === true){
-						return "" + location.locationName + "<br/>Zone Restricted Parking: Free Parking limit of <b>" + description.timeRestriction + " hours</b>.<br/>" + location.locationAddress;
+						return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'yellow'><b>Zone Restricted Parking: Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 					}
-					return "" + location.locationName + "<br/>Free Parking limit of <b>" + description.timeRestriction + " hours</b><br/>" + location.locationAddress;
+					return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'yellow'><b>Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 				}
-				var content = "" + location.locationName;
+				var content = "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font>";
 				if (description.streetCleaning != false){
-					
+					content = content + "<br/>" + "<font color = 'yellow'><b>Street Cleaning: " + description.streetCleaning + "</b></font>";
+				}
+				if (description.noParkingRange1 != false){
+					content = content + "<br/>" + "<font color = 'red'><b>No Parking: " + description.noParkingRange1 + "</b></font>";
+				}
+				if (description.noParkingRange2 != false){
+					content = content + "<font color = 'red'><b>&nbsp;" + description.noParkingRange2 + "</b></font>";
 				}
 				content = content + "<br/>" + location.locationAddress;
+				return content;
 			}
 		}
 	}
@@ -47,7 +57,7 @@ function getContentOfMarker(location){
 
 function getColorOfMarker(location){
 	var locationType = location.locationType;
-	if (locationType != null && typeof(locationType) != undefined && locationType != undefined && locationType.length > 0){
+	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
 		if (locationType === "Home"){
 			return ColorMappings[ColorsEnum.BLACK];
 		}
@@ -65,42 +75,126 @@ var ColorMappings = [];
 ColorMappings[ColorsEnum.BLACK] = "#000000";
 ColorMappings[ColorsEnum.RED] = "#FF0000";
 ColorMappings[ColorsEnum.YELLOW] = "#FFFF00";
-ColorMappings[ColorsolorMappings[ColorsEnum.GREEN] = "#008000";
+ColorMappings[ColorsEnum.GREEN] = "#008000";
 ColorMappings[ColorsEnum.BLUE] = "#0000FF";
-ColorMappings[ColorsEnum.WHITE] = "#FFFFFF"Enum.ORANGE] = "#FFA500";
-C;
+ColorMappings[ColorsEnum.WHITE] = "#FFFFFF"
+ColorMappings[ColorsEnum.ORANGE] = "#FFA500";
 
 if (Object.freeze)
   Object.freeze(ColorsEnum);
 
-function ParkingDescription(cost, zoneRestriction, timeRestriction, streetCleaning, side, garage, noParkingRange1, noParkingRange2, text){
-	this.zoneRestriction = zoneRestriction;
-	this.streetCleaning = streetCleaning;
-	this.cost = cost;
-	this.garage = garage;
-	this.timeRestriction = timeRestriction;
-	this.text = text;
-	this.side = side;
-	this.noParkingRange1 = noParkingRange1;
-	this.noParkingRange2 = noParkingRange2;
-}
-
-
-function ParkingLocation(element){
-	element.location 
-}
-
-new ParkingLocation({location: "me" } );
-
-
-function Location(locationName, locationType, latitude, longitude, locationAddress, parkingDescription, zIndex) {
-	this.locationName = locationName;
-	this.locationType = locationType;
-	this.latitude = latitude;
-	this.longitude = longitude;
-	this.locationAddress = locationAddress;
-	if (zIndex === null || typeof(zIndex) === undefined || zIndex === undefined){
-		this.zIndex = 1;
+function ParkingDescription(parkingDescription){
+	if (parkingDescription.cost === undefined || parkingDescription.cost == undefined || 
+		typeof(parkingDescription.cost) === "undefined" || parkingDescription.cost === null){
+		this.cost = 0;
+	} else {
+		this.cost = parkingDescription.cost;
 	}
-	this.parkingDescription = parkingDescription;
+	
+	if (parkingDescription.zoneRestriction === undefined || parkingDescription.zoneRestriction == undefined || 
+		typeof(parkingDescription.zoneRestriction) === "undefined" || parkingDescription.zoneRestriction === null){
+		this.zoneRestriction = false;
+	} else {
+		this.zoneRestriction = parkingDescription.zoneRestriction;
+	}
+	
+	if (parkingDescription.streetCleaning === undefined || parkingDescription.streetCleaning == undefined || 
+		typeof(parkingDescription.streetCleaning) === "undefined" || parkingDescription.streetCleaning === null){
+		this.streetCleaning = false;
+	} else {
+		this.streetCleaning = parkingDescription.streetCleaning;
+	}
+	
+	if (parkingDescription.garage === undefined || parkingDescription.garage == undefined || 
+		typeof(parkingDescription.garage) === "undefined" || parkingDescription.garage === null){
+		this.garage = false;
+	} else {
+		this.garage = parkingDescription.garage;
+	}
+	
+	if (parkingDescription.timeRestriction === undefined || parkingDescription.timeRestriction == undefined || 
+		typeof(parkingDescription.timeRestriction) === "undefined" || parkingDescription.timeRestriction === null){
+		this.timeRestriction = 0;
+	} else {
+		this.timeRestriction = parkingDescription.timeRestriction;
+	}
+	
+	if (parkingDescription.text === undefined || parkingDescription.text == undefined || 
+		typeof(parkingDescription.text) === "undefined" || parkingDescription.text === null){
+		this.text = "";
+	} else {
+		this.text = parkingDescription.text;
+	}
+	
+	if (parkingDescription.side === undefined || parkingDescription.side == undefined || 
+		typeof(parkingDescription.side) === "undefined" || parkingDescription.side === null){
+		this.side = "Right";
+	} else {
+		this.side = parkingDescription.side;
+	}
+	
+	if (parkingDescription.noParkingRange1 === undefined || parkingDescription.noParkingRange1 == undefined || 
+		typeof(parkingDescription.noParkingRange1) === "undefined" || parkingDescription.noParkingRange1 === null){
+		this.noParkingRange1 = false;
+	} else {
+		this.noParkingRange1 = parkingDescription.noParkingRange1;
+	}
+		
+	if (parkingDescription.noParkingRange2 === undefined || parkingDescription.noParkingRange2 == undefined || 
+		typeof(parkingDescription.noParkingRange2) === "undefined" || parkingDescription.noParkingRange2 === null){
+		this.noParkingRange2 = false;
+	} else {
+		this.noParkingRange2 = parkingDescription.noParkingRange2;
+	}
+}
+
+function Location(location) {
+	if (location.locationName === undefined || location.locationName == undefined || 
+		typeof(location.locationName) === "undefined" || location.locationName === null){
+		this.locationName = "";
+	} else {
+		this.locationName = location.locationName;
+	}
+	
+	if (location.locationType === undefined || location.locationType == undefined || 
+		typeof(location.locationType) === "undefined" || location.locationType === null){
+		this.locationType = "";
+	} else {
+		this.locationType = location.locationType;
+	}
+	
+	if (location.zIndex === null || typeof(location.zIndex) === "undefined" || 
+		location.zIndex === undefined || location.zIndex == undefined || location.zIndex < 1){
+		this.zIndex = 1;
+	} else {
+		this.zIndex = location.zIndex;
+	}
+	
+	if (location.latitude === undefined || location.latitude == undefined || 
+		typeof(location.latitude) === "undefined" || location.latitude === null){
+		this.latitude = "";
+	} else {
+		this.latitude = location.latitude;
+	}
+	
+	if (location.longitude === undefined || location.longitude == undefined || 
+		typeof(location.longitude) === "undefined" || location.longitude === null){
+		this.longitude = "";
+	} else {
+		this.longitude = location.longitude;
+	}
+	
+	if (location.locationAddress === undefined || location.locationAddress == undefined || 
+		typeof(location.locationAddress) === "undefined" || location.locationAddress === null){
+		this.locationAddress = "";
+	} else {
+		this.locationAddress = location.locationAddress;
+	}
+	
+	if (location.parkingDescription === undefined || location.parkingDescription == undefined || 
+		typeof(location.parkingDescription) === "undefined" || location.parkingDescription === null){
+		this.parkingDescription = "";
+	} else {
+		this.parkingDescription = location.parkingDescription;
+	}
 }
