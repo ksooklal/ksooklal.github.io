@@ -31,7 +31,7 @@
 
 			function initialize() {
 				var myOptions = {
-					zoom: 16,
+					zoom: 15,
 					center: new google.maps.LatLng(38.90394, -77.01),
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 					//mapTypeId: google.maps.MapTypeId.SATELLITE
@@ -51,11 +51,16 @@
 				var latLng = new google.maps.LatLng(location.latitude, location.longitude);
 				var content = getContentOfMarker(location);
 				var color = getColorOfMarker(location);
-				
+				var pin = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + color,
+					new google.maps.Size(21, 34),
+					new google.maps.Point(0,0),
+					new google.maps.Point(10, 34));
+
 				var marker = new google.maps.Marker(
 					{
 						position: latLng, 
-						map: map
+						map: map,
+						icon: pin
 					}
 				);
 				google.maps.event.addListener(marker, "click", function() {

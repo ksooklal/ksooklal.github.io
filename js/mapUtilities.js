@@ -63,22 +63,34 @@ function getColorOfMarker(location){
 		}
 		if (locationType === "Work"){
 			return ColorMappings[ColorsEnum.BLUE];
-		}
-		if (locationType === "Parking"){
-			
+		}			
+		if (locationType === "Parking" && location.parkingDescription != null){
+			var description = location.parkingDescription;
+			if (description.cost > 0 && description.cost < 6){
+				return ColorMappings[ColorsEnum.RED];
+			}
+			if (description.cost === 0){
+				if (description.zoneRestriction === true){
+					return ColorMappings[ColorsEnum.YELLOW];
+				}
+				if (description.timeRestriction > 0){
+					return ColorMappings[ColorsEnum.ORANGE];
+				}
+				return ColorMappings[ColorsEnum.GREEN];
+			}
 		}
 	}
 	return ColorMappings[ColorsEnum.WHITE];
 }
 
 var ColorMappings = [];
-ColorMappings[ColorsEnum.BLACK] = "#000000";
-ColorMappings[ColorsEnum.RED] = "#FF0000";
-ColorMappings[ColorsEnum.YELLOW] = "#FFFF00";
-ColorMappings[ColorsEnum.GREEN] = "#008000";
-ColorMappings[ColorsEnum.BLUE] = "#0000FF";
-ColorMappings[ColorsEnum.WHITE] = "#FFFFFF"
-ColorMappings[ColorsEnum.ORANGE] = "#FFA500";
+ColorMappings[ColorsEnum.BLACK] = "000000";
+ColorMappings[ColorsEnum.RED] = "FF0000";
+ColorMappings[ColorsEnum.YELLOW] = "FFFF00";
+ColorMappings[ColorsEnum.GREEN] = "008000";
+ColorMappings[ColorsEnum.BLUE] = "0000FF";
+ColorMappings[ColorsEnum.WHITE] = "FFFFFF"
+ColorMappings[ColorsEnum.ORANGE] = "FFA500";
 
 if (Object.freeze)
   Object.freeze(ColorsEnum);
