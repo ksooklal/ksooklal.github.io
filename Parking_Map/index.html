@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>C.O.D. Parking Map</title>
@@ -72,23 +73,21 @@
 			}
 		</script>
 	</head>
-	<body onload="initialize()" style = "min-height: 350px; height: 98%; padding-left: 5px; padding-right: 5px;">
-		<div id = 'mapHolder' style = 'min-width: 300px; width: 100%; min-height: 335px; height: 100%'>
-			<div id = 'header' style = 'margin-left:auto; margin-right:0; width: 80%; text-align: center'><font size = '4'><b>C.O.D. Parking Map</b></font></div>
-			<div id = 'legend' style = 'background-color: #E8E88D; clear: both; text-align: center; float: left; min-width: 60px; width: 20%; min-height: 300px; height: calc(100% - 25px)'>
-				<font size = '5'><b>Legend:</b></font><br/>
-				<table style = 'text-align: left'>
-					<tr><td><font size = '4' color = 'black'><b>Pin Color</b></font></td>	<td style = 'text-align: center'><font size = '4' color = 'black'><b>Description</b></font></td></tr>
-					<tr><td><font size = '4' color = 'black'><b>BLACK</b></font></td>		<td><font color = 'black'>Home</font></td></tr>
-					<tr><td><font size = '4' color = 'red'><b>RED</b></font></td>			<td><font color = 'red'>Cheap Parking (under $6/day)</font></td></tr>
-					<tr><td><font size = '4' color = 'yellow'><b>YELLOW</b></font></td>		<td><font color = 'yellow'>Zone Parking (Free Parking for Limited Time for Non-residents, Unlimited Free Parking for Zone Residents)</font></td></tr>
-					<tr><td><font size = '4' color = 'orange'><b>ORANGE</b></font></td>		<td><font color = 'orange'>Time-Restricted Parking (Free Parking for Limited Time)</font></td></tr>
-					<tr><td><font size = '4' color = 'green'><b>GREEN</b></font></td>		<td><font color = 'green'>Free Parking</font></td></tr>
-					<tr><td><font size = '4' color = 'blue'><b>BLUE</b></font></td>			<td><font color = 'blue'>COD</font></td></tr>
-				</table>
-			</div>
-			<div id = "map_canvas" style = "margin-left:auto; margin-right:0; min-width: 240px; width: 80%; min-height: 300px; height: calc(100% - 25px)"></div>
+	<body onload="initialize()" style = "min-width: 300px; background-color: #A0CFEC; min-height: 350px; height: 97%;">
+		<div id = 'header' style = 'margin-left:auto; margin-right:0; width: 80%; text-align: center'><font size = '4'><b>C.O.D. Parking Map</b></font></div>
+		<div id = 'legend' style = 'background-color: #E8E88D; clear: both; text-align: center; float: left; min-width: 60px; width: 20%; min-height: 300px; height: calc(100% - 25px)'>
+			<font size = '5'><b>Legend:</b></font><br/>
+			<table style = 'text-align: left'>
+				<tr><td><font size = '4' color = 'black'><b>Pin Color</b></font></td>	<td style = 'text-align: center'><font size = '4' color = 'black'><b>Description</b></font></td></tr>
+				<tr><td><font size = '4' color = 'black'><b>BLACK</b></font></td>		<td><font color = 'black'>Home</font></td></tr>
+				<tr><td><font size = '4' color = 'red'><b>RED</b></font></td>			<td><font color = 'red'>Cheap Parking (under $6/day)</font></td></tr>
+				<tr><td><font size = '4' color = 'yellow'><b>YELLOW</b></font></td>		<td><font color = 'yellow'>Zone Parking (Free Parking for Limited Time for Non-residents, Unlimited Free Parking for Zone Residents)</font></td></tr>
+				<tr><td><font size = '4' color = 'orange'><b>ORANGE</b></font></td>		<td><font color = 'orange'>Time-Restricted Parking (Free Parking for Limited Time)</font></td></tr>
+				<tr><td><font size = '4' color = 'green'><b>GREEN</b></font></td>		<td><font color = 'green'>Free Parking</font></td></tr>
+				<tr><td><font size = '4' color = 'blue'><b>BLUE</b></font></td>			<td><font color = 'blue'>COD</font></td></tr>
+				<tr><td colspan = '2' style = 'text-align:left'><button type = 'button' onclick="map.clearMarkers();">Reset</button></td></tr>
+			</table>
 		</div>
-		<a href="http://stackoverflow.com/questions/1544739/google-maps-api-v3-how-to-remove-all-markers/1544885#1544885"></a>
+		<div id = "map_canvas" style = "margin-left:auto; margin-right:0; min-width: 240px; width: 80%; min-height: 300px; height: calc(100% - 25px)"></div>
 	</body>
 </html>
