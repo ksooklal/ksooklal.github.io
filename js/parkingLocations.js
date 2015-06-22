@@ -28,6 +28,7 @@ locations.push(new Location({locationName: "N St NE", locationType: "Parking", l
 locations.push(new Location({locationName: "I St NW", locationType: "Parking", latitude: 38.901276, longitude: -77.012629, locationAddress: "102 I St NW Washington DC 20001", parkingDescription: new ParkingDescription({streetCleaning: "Thursdays 12:30 - 2:30"})}));
 locations.push(new Location({locationName: "I St NW", locationType: "Parking", latitude: 38.90135, longitude: -77.013, locationAddress: "113 I St NW Washington DC 20001", parkingDescription: new ParkingDescription({streetCleaning: "Wednesdays 12:30 - 2:30"})}));
 locations.push(new Location({locationName: "$5 Parking Lot", locationType: "Parking", latitude: 38.908351, longitude: -77.007034, locationAddress: "66 New York Ave NE Washington DC 20002", parkingDescription: new ParkingDescription({cost: 5.00})}));
+locations.push(new Location({locationName: "3rd Street NE", locationType: "Parking", latitude: 38.9023, longitude: -77.00208, locationAddress: "960 3rd Street NE Washington DC 20002", parkingDescription: new ParkingDescription({zoneRestriction: true, timeRestriction: 2})}));
 
 function getLocations(){
 	return locations;

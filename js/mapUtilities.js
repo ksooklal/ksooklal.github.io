@@ -7,12 +7,12 @@ function formatMoney(amount){
 }
 
 var ColorsEnum = {
-	BLACK: "Home",
-	RED: "Cheap Parking",
-	YELLOW: "Zone Parking",
+	PURPLE: "Home",
+	GREEN: "Cheap Parking",
+	BROWN: "Zone Parking",
 	ORANGE: "Time-Restricted Parking",
-	GREEN: "Free Parking",
-	BLUE: "COD Location",
+	BLUE: "Free Parking",
+	RED: "COD Location",
 	WHITE: ""
 };
 
@@ -20,26 +20,26 @@ function getContentOfMarker(location){
 	var locationType = location.locationType;
 	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
 		if (locationType === "Home"){
-			return "<font size = '3' color = 'blue'><b>" + location.locationName + "</b></font>";
+			return "<font size = '3' color = 'black'><b>" + location.locationName + "</b></font>";
 		}
 		if (locationType === "Work"){
-			return "<font size = '3'><b>COD</b></font>";
+			return "<font size = '3'><b>COD Project Location</b></font><font><br/>820 First Street NE,<br/>Washington DC, 20002</font>";
 		}
 		if (locationType === "Parking"){
 			if (location.parkingDescription != null){
 				var description = location.parkingDescription;
 				if (description.cost > 0 && description.cost < 6){
-					return "<font size = '3'><b>" + location.locationName + "</b></font><br/>Cost: " + formatMoney(description.cost) + "<br/>" + location.locationAddress;
+					return "<font size = '3' color = 'green'><b>" + location.locationName + "</b></font><br/>Cost: " + formatMoney(description.cost) + "<br/>" + location.locationAddress;
 				}
 				if (description.timeRestriction > 0){
 					if (description.zoneRestriction === true){
-						return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'yellow'><b>Zone Restricted Parking: Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
+						return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'orange'><b>Zone Restricted Parking: Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 					}
-					return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'yellow'><b>Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
+					return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = '#D2691E'><b>Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 				}
 				var content = "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font>";
 				if (description.streetCleaning != false){
-					content = content + "<br/>" + "<font color = 'yellow'><b>Street Cleaning: " + description.streetCleaning + "</b></font>";
+					content = content + "<br/>" + "<font color = 'red'><b>Street Cleaning: " + description.streetCleaning + "</b></font>";
 				}
 				if (description.noParkingRange1 != false){
 					content = content + "<br/>" + "<font color = 'red'><b>No Parking: " + description.noParkingRange1 + "</b></font>";
@@ -59,24 +59,24 @@ function getColorOfMarker(location){
 	var locationType = location.locationType;
 	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
 		if (locationType === "Home"){
-			return ColorMappings[ColorsEnum.BLACK];
+			return ColorMappings[ColorsEnum.PURPLE];
 		}
 		if (locationType === "Work"){
-			return ColorMappings[ColorsEnum.BLUE];
+			return ColorMappings[ColorsEnum.RED];
 		}			
 		if (locationType === "Parking" && location.parkingDescription != null){
 			var description = location.parkingDescription;
 			if (description.cost > 0 && description.cost < 6){
-				return ColorMappings[ColorsEnum.RED];
+				return ColorMappings[ColorsEnum.GREEN];
 			}
 			if (description.cost === 0){
 				if (description.zoneRestriction === true){
-					return ColorMappings[ColorsEnum.YELLOW];
+					return ColorMappings[ColorsEnum.BROWN];
 				}
 				if (description.timeRestriction > 0){
 					return ColorMappings[ColorsEnum.ORANGE];
 				}
-				return ColorMappings[ColorsEnum.GREEN];
+				return ColorMappings[ColorsEnum.BLUE];
 			}
 		}
 	}
@@ -84,13 +84,16 @@ function getColorOfMarker(location){
 }
 
 var ColorMappings = [];
-ColorMappings[ColorsEnum.BLACK] = "000000";
+ColorMappings[ColorsEnum.PURPLE] = "800080";
+//ColorMappings[ColorsEnum.YELLOW] = "FFFF00";
+//ColorMappings[ColorsEnum.BLACK] = "000000";
+//ColorMappings[ColorsEnum.PINK] = "DA70D6";
 ColorMappings[ColorsEnum.RED] = "FF0000";
-ColorMappings[ColorsEnum.YELLOW] = "FFFF00";
+ColorMappings[ColorsEnum.BROWN] = "D2691E";
 ColorMappings[ColorsEnum.GREEN] = "008000";
 ColorMappings[ColorsEnum.BLUE] = "0000FF";
 ColorMappings[ColorsEnum.WHITE] = "FFFFFF"
-ColorMappings[ColorsEnum.ORANGE] = "FFA500";
+ColorMappings[ColorsEnum.ORANGE] = "FF8C00";
 
 if (Object.freeze)
   Object.freeze(ColorsEnum);
