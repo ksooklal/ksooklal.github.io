@@ -20,10 +20,10 @@ function getContentOfMarker(location){
 	var locationType = location.locationType;
 	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
 		if (locationType === "Home"){
-			return "<font size = '3' color = 'black'><b>" + location.locationName + "</b></font>";
+			return "<font size = '3' color = '#800080'><b>" + location.locationName + "</b></font>";
 		}
 		if (locationType === "Work"){
-			return "<font size = '3'><b>COD Project Location</b></font><font><br/>820 First Street NE,<br/>Washington DC, 20002</font>";
+			return "<font color = '#CC0000' size = '3'><b>COD Project Location</b></font>" + "<br/>" + location.locationAddress;
 		}
 		if (locationType === "Parking"){
 			if (location.parkingDescription != null){
@@ -33,11 +33,11 @@ function getContentOfMarker(location){
 				}
 				if (description.timeRestriction > 0){
 					if (description.zoneRestriction === true){
-						return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'orange'><b>Zone Restricted Parking: Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
+						return "<font color = '#8B4513' size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'orange'><b>Zone Restricted Parking: Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 					}
-					return "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = '#D2691E'><b>Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
+					return "<font color = '#FF6600' size = '3'><b>Free Parking: " + location.locationName + "</b></font><br/><font color = 'orange'><b>Free Parking limit of " + description.timeRestriction + " hours</b></font><br/>" + location.locationAddress;
 				}
-				var content = "<font size = '3'><b>Free Parking: " + location.locationName + "</b></font>";
+				var content = "<font color = 'blue' size = '3'><b>Free Parking: " + location.locationName + "</b></font>";
 				if (description.streetCleaning != false){
 					content = content + "<br/>" + "<font color = 'red'><b>Street Cleaning: " + description.streetCleaning + "</b></font>";
 				}
@@ -88,13 +88,13 @@ ColorMappings[ColorsEnum.PURPLE] = "800080";
 //ColorMappings[ColorsEnum.YELLOW] = "FFFF00";
 //ColorMappings[ColorsEnum.BLACK] = "000000";
 //ColorMappings[ColorsEnum.PINK] = "DA70D6";
-ColorMappings[ColorsEnum.RED] = "FF0000";
+ColorMappings[ColorsEnum.RED] = "CC0000";
 //ColorMappings[ColorsEnum.BROWN] = "D2691E";
 ColorMappings[ColorsEnum.BROWN] = "8B4513";
 ColorMappings[ColorsEnum.GREEN] = "008000";
 ColorMappings[ColorsEnum.BLUE] = "0000FF";
 ColorMappings[ColorsEnum.WHITE] = "FFFFFF"
-ColorMappings[ColorsEnum.ORANGE] = "FF8C00";
+ColorMappings[ColorsEnum.ORANGE] = "FF6600";
 
 if (Object.freeze)
   Object.freeze(ColorsEnum);
