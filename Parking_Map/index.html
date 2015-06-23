@@ -2,6 +2,15 @@
 	<head>
 		<title>C.O.D. Parking Map</title>
 		<link href="../images/Google Maps Icon.ico" rel="shortcut icon">
+		<style media = 'screen' type = 'text/css'>
+			html{
+				min-width: 300px; 
+				background-color: #A0CFEC; 
+				min-height: 350px;
+				text-align: center;
+				vertical-align: center;
+			}
+		</style>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="../js/mapUtilities.js"></script>
 		<script type="text/javascript" src="../js/parkingLocations.js"></script>
@@ -69,12 +78,12 @@
 			}
 		</script>
 	</head>
-	<body onload="initialize()" style = "min-width: 300px; background-color: #A0CFEC; min-height: 350px; height: 100%;">
-		<div id = 'header' style = 'margin-left:auto; margin-right:0; width: 80%; text-align: center'><font size = '4'><b>C.O.D. Parking Map</b></font></div>
-		<table style = 'width: 100%; height: 97%; min-height: 310px; min-width: 290px;'><tr>
-			<td style = 'width: 15%; min-width: 50px; background-color: lightgray; vertical-align: top;'>
+	<body onload="initialize()">
+		<table style = 'margin: 0px; height: 100%; width: 100%;'><tr>
+			<td style = 'width: 15%; background-color: lightgray; vertical-align: top;'>
 				<table style = 'text-align: left; padding: 5px; margin-top:0px;'>
-					<tr><td colspan = '2' style = 'text-align: center'><font size = '5'><b>Legend:</b></font><br/></td></tr>
+					<tr><td colspan = '2' style = 'text-align: center'><font size = '6'><b>COD Parking Map</b></font><br/></td></tr>
+					<tr><td colspan = '2' style = 'text-align: center'><font size = '5'>&nbsp;</font><br/></td></tr>
 					<tr><td style = 'width: 30%'><font size = '4' color = 'black'><b>Pin Color</b></font></td>	<td style = 'text-align: center'><font size = '4' color = 'black'><b>Description</b></font></td></tr>
 					<tr><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>COD</font></td></tr>
 					<tr><td><font size = '4' color = 'blue'><b>BLUE</b></font></td>			<td><font color = 'blue'>Free Parking</font></td></tr>
@@ -86,8 +95,8 @@
 				</table>
 				<button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="map.clearMarkers();">Reset</button>
 			</td>
-			<td>
-				<div id = "map_canvas" style = "width: 100%; height: 100%; min-height: 280px;"></div>
+			<td style = 'width: 85%'>
+				<div id = "map_canvas" style = "width: 100%; height: 100%; margin: 0px"></div>
 			</td>
 		</tr></table>
 	</body>
