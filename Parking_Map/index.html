@@ -16,6 +16,12 @@
 		<script type="text/javascript" src="../js/parkingLocations.js"></script>
 		<script type="text/javascript">
 			var infowindow;
+			var myOptions = {
+				zoom: 16,
+				center: new google.maps.LatLng(38.90394, -77.01),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+				
 			(function () {
 				google.maps.Map.prototype.markers = new Array();
 				
@@ -31,20 +37,11 @@
 					if(infowindow) {
 						infowindow.close();
 					}
-				
-					for(var i=0; i<this.markers.length; i++){
-						this.markers[i].set_map(null);
-					}
+					map.setOptions(myOptions);
 				};
 			})();
 
 			function initialize() {
-				var myOptions = {
-					zoom: 16,
-					center: new google.maps.LatLng(38.90394, -77.01),
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				};
-				
 				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
 				var locations = getLocations();
@@ -52,8 +49,6 @@
 					map.addMarker(createMarker(locations[i]));
 				 }
 			}
-			
-			
 
 			function createMarker(location) {
 				var latLng = new google.maps.LatLng(location.latitude, location.longitude);
