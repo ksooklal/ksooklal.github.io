@@ -16,9 +16,11 @@
 		<script type="text/javascript" src="../js/parkingLocations.js"></script>
 		<script type="text/javascript">
 			var infowindow;
+			var center = new google.maps.LatLng(38.90394, -77.01);
+			
 			var myOptions = {
 				zoom: 16,
-				center: new google.maps.LatLng(38.90394, -77.01),
+				center: center,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 				
@@ -47,7 +49,11 @@
 				var locations = getLocations();
 				for (var i = 0; i < locations.length; i++) {
 					map.addMarker(createMarker(locations[i]));
-				 }
+				}
+				
+				google.maps.event.addDomListener(window, "resize", function() {
+					map.setOptions(myOptions);
+				});
 			}
 
 			function createMarker(location) {
