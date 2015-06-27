@@ -23,7 +23,7 @@ function getContentOfMarker(location){
 			return "<font size = '3' color = '#800080'><b>" + location.locationName + "</b></font>";
 		}
 		if (locationType === "Work"){
-			return "<font color = '#CC0000' size = '3'><b>COD Project Location</b></font>" + "<br/>" + location.locationAddress;
+			return "<font color = '#CC0000' size = '3'><b>Work</b></font>" + "<br/>" + location.locationAddress;
 		}
 		if (locationType === "Parking"){
 			if (location.parkingDescription != null){
