@@ -42,6 +42,8 @@ locations.push(new Location({locationName: "3rd St NE", locationType: "Parking",
 locations.push(new Location({locationName: "3rd St NE", locationType: "Parking", latitude: 38.90408, longitude: -77.00199, locationAddress: "1111 3rd Street NE Washington DC 20002", parkingDescription: new ParkingDescription({zoneRestriction: true, timeRestriction: 2})}));
 locations.push(new Location({locationName: "3rd St NE", locationType: "Parking", latitude: 38.90276, longitude: -77.00199, locationAddress: "1005 3rd Street NE Washington DC 20002", parkingDescription: new ParkingDescription({zoneRestriction: true, timeRestriction: 2})}));
 locations.push(new Location({locationName: "3rd St NE", locationType: "Parking", latitude: 38.9034, longitude: -77.00199, locationAddress: "1065 3rd Street NE Washington DC 20002", parkingDescription: new ParkingDescription({zoneRestriction: true, timeRestriction: 2})}));
+locations.push(new Location({locationName: "St. Alban's School", locationType: "Parking", latitude: 38.9276, longitude: -77.070495, locationAddress: "3551 Garfield St NW Washington DC 20007", parkingDescription: new ParkingDescription({})}));
+locations.push(new Location({locationName: "St. Alban's School", locationType: "Parking", latitude: 38.9276, longitude: -77.0696, locationAddress: "3527 Garfield St NW Washington DC 20007", parkingDescription: new ParkingDescription({})}));
 
 function getLocations(){
 	return locations;
