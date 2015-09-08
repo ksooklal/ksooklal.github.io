@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+	<link rel="icon" href="http://ksooklal.comuv.com/Images/CherryBlossoms.JPG">
+	<head>
+		<title>Kristian Sooklal's Resume (as of March 2015)</title>
+			
+		<script type = "text/javascript" src = pdfobject.js"></script>
+ 
+		<script type="text/javascript">
+			window.onload = function (){	
+				var msg;
+				var s = document.getElementById("statement");	
+				var params = { 
+					url: "Resume.pdf",
+					pdfOpenParams: { 
+						zoom: '100',
+						pagemode: 'thumbs', 
+						toolbar: '1', 
+						statusbar: '0',
+						scrollbar: '1',
+						messages: '0', 
+						navpanes: '0',
+					}
+				};
+ 
+				var myPDF = new PDFObject(params).embed("pdf");
+
+				if(myPDF){
+					msg = "The PDF was successfully embedded!";
+					s.className = "success";
+				} else {
+					msg = "It appears the embed didn't work.";
+					s.className = "fail";
+				}
+				s.innerHTML = msg;
+			};
+		</script>
+		
+		<style media='screen' type = 'text/css'>
+			html, body{
+				background-color: #A0CFEC; 
+				background-attachment:fixed;
+				margin: 5px;
+				padding: 0;
+				min-width: 1000px;
+				min-height: 1300px;
+			}
+
+			#pdf {
+				margin: 2em auto;
+				border: 4px solid #6699FF;
+				height: 1250px;
+				max-width: 980px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#pdf p {
+				padding: 1em;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#pdf object {
+				display: block;
+				border: solid 1px #666;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#statement {
+				padding: 1em;
+				margin: 1em;
+				border: solid 4px #FFF;
+				font-size: medium;
+				font-weight: bold;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.success {
+				background: #00CC33;
+				color: #FFFFFF;
+			}
+
+			.fail {
+				background: #FF3366;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+ 
+	<body>
+		<div id = "home">
+			<a style = "color: red" href = "../">Back to Home Page</a>
+		</div>
+
+		<div id = "pdf">It appears you don't have Adobe Reader or PDF support in this web browser. Click 
+			<strong><a href = "../Documents/Resumes/Kristian Sooklal March 2015 Resume.pdf">here</a></strong> to download the PDF
+		</div>
+	</body>
+</html>
