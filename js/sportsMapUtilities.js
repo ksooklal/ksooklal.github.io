@@ -27,34 +27,76 @@ function SportsLocation(location) {
 	this.sportsCity = cleanUpString(location.sportsCity);
 	this.locationCity = cleanUpString(location.locationCity);
 	this.gameDescription = cleanUpString(location.gameDescription);
+	this.latitude = cleanUpString(location.latitude);
+	this.longitude = cleanUpString(location.longitude);
 }
 
 function getColorOfMarker(location){
-	var locationType = location.locationType;
-	if (locationType != null && typeof(locationType) != "undefined" && locationType != undefined && locationType.length > 0){
-		if (locationType === "Home"){
-			return ColorMappings[ColorsEnum.PURPLE];
-		}
-		if (locationType === "Work"){
-			return ColorMappings[ColorsEnum.RED];
-		}			
-		if (locationType === "Parking" && location.parkingDescription != null){
-			var description = location.parkingDescription;
-			if (description.cost > 0 && description.cost < 6){
-				return ColorMappings[ColorsEnum.GREEN];
-			}
-			if (description.cost === 0){
-				if (description.zoneRestriction === true){
-					return ColorMappings[ColorsEnum.BROWN];
-				}
-				if (description.timeRestriction > 0){
-					return ColorMappings[ColorsEnum.ORANGE];
-				}
-				return ColorMappings[ColorsEnum.BLUE];
-			}
-		}
+	var league = cleanUpString(location.league);
+	var date = cleanUpString(location.date);
+	if (league === "" || date === ""){
+		return WHITE;
+	}	
+	if (league === "NFL"){
+		return PURPLE;
 	}
-	return ColorMappings[ColorsEnum.WHITE];
+	
+	if (league === "NBA"){
+		return ORANGE;
+	}
+	
+	if (league === "MLB"){
+		return YELLOW;
+	}
+	
+	if (league === "NHL"){
+		return BLACK;
+	}
+	
+	if (league === "MLS"){
+		return GREEN;
+	}
+	
+	if (league === "NCAAFB" || league === "NCAAF" || league === "NCAA Football"){
+		return BROWN;
+	}
+
+	if (league === "NCAABB" || league === "NCAA Basketball" || league === "NCAA Men's Basketball"){
+		return RED;
+	}
+}
+
+function getContentOfMarker(location){
+	var game = location.gameName;
+	var htmlString = "<font size = '3'><b>" + game + "</b></font>";
+	var stadium = location.locationName;
+	var date = location.date;
+	htmlString += ("<br/>" + stadium);
+	var url = location.ticketUrl;
+	htmlString += ("<br/><a href = '" + url + "' target = '_blank'>" + date + "</a><br/>");
+	return htmlString;
+}
+
+function createMarker(location) {
+	var latLng = new google.maps.LatLng(location.latitude, location.longitude);
+	var content = getContentOfMarker(location);
+	var color = getColorOfMarker(location);
+	var icon = "../../images/" + color + ".png";
+
+	var marker = new google.maps.Marker(
+		{
+			position: latLng, 
+			map: map,
+			icon: icon
+		}
+	);
+	google.maps.event.addListener(marker, "click", function() {
+		if (infowindow) 
+			infowindow.close();
+		infowindow = new google.maps.InfoWindow({content: content});
+		infowindow.open(map, marker);
+	});
+	return marker;
 }
 
 var PURPLE = "800080";
