@@ -19,3 +19,7 @@ locations.push(new SportsLocation({
 	gameName: "", date: "", gameDescription: "",
 	ticketUrl: ""
 }));
+
+function getSportsLocations(){
+	return locations;
+}
