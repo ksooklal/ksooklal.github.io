@@ -46,7 +46,7 @@
 			function initialize() {
 				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-				var locations = getLocations();
+				var locations = getSportsLocations();
 				for (var i = 0; i < locations.length; i++) {
 					map.addMarker(createMarker(locations[i]));
 				}
@@ -92,9 +92,10 @@
 					<tr><td><font size = '4' color = '#FF6600'><b>ORANGE</b></font></td>	<td><font color = '#FF6600'>NBA</font></td></tr>
 					<tr><td><font size = '4' color = 'green'><b>GREEN</b></font></td>		<td><font color = 'green'>MLS</font></td></tr>
 					<tr><td><font size = '4' color = 'blue'><b>BLUE</b></font></td>			<td><font color = 'blue'>NHL</font></td></tr>
-					<tr><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>	<td><font color = '#800080'>Home</font></td></tr>
-					<tr><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>Maryland Games</font></td></tr>
-					<tr><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>Zone Parking (Free Parking for Limited Time for Non-residents, Unlimited Free Parking for Zone Residents)</font></td></tr>
+					<tr><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>	<td><font color = '#800080'>NFL</font></td></tr>
+					<tr><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
+					<tr><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
+					<tr><td><font size = '4' color = 'FFFF00'><b>YELLOW</b></font></td>		<td><font color = 'FFFF00'>MLB</font></td></tr>
 					
 					<tr><td colspan = '2'><font size = '3'>&nbsp;</font></td></tr>
 					<tr><td colspan = '2' style = 'text-align:left;'><button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="map.clearMarkers();">Reset</button></td></tr>
