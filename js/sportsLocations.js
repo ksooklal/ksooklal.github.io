@@ -1,15 +1,16 @@
 var locations = [];
 locations.push(new SportsLocation({
 	league: "MLS",
-	locationName: "", sportsCity: "", locationCity: "", latitude: "", longitude: "",
-	gameName: "", date: "", gameDescription: "",
-	ticketUrl: ""
+	locationName: "RFK Stadium", sportsCity: "Washington, D.C.", locationCity: "Washington, D.C.", 
+	latitude: "38.8898", longitude: "-76.972",
+	gameName: "DC United vs Philadelphia Union", date: "07/26/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/DC United vs Philadelphia Union 2015-07-26.pdf"
 }));
 
 locations.push(new SportsLocation({
 	league: "NBA",
 	locationName: "Verizon Center", sportsCity: "Washington, D.C.", locationCity: "Washington, D.C.", 
-	latitude: "38.9071923", longitude: "-77.0368707",
+	latitude: "38.898", longitude: "-77.021",
 	gameName: "Washington Wizards vs Sacramento Kings", date: "03/14/2015", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NBA/Washington Wizards vs Sacramento Kings 2015-03-14.pdf"
 }));
@@ -47,11 +48,11 @@ locations.push(new SportsLocation({
 }));
 
 locations.push(new SportsLocation({
-	league: "",
-	locationName: "", sportsCity: "", locationCity: "", 
-	latitude: "", longitude: "",
-	gameName: "", date: "", gameDescription: "",
-	ticketUrl: ""
+	league: "NFL",
+	locationName: "FedEx Field", sportsCity: "Washington, D.C.", locationCity: "Landover, MD", 
+	latitude: "38.9076", longitude: "-76.8645",
+	gameName: "Washington Redskins vs New York Giants", date: "12/01/2013", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NFL/Washington Redskins vs New York Giants 2013-12-01.pdf"
 }));
 
 locations.push(new SportsLocation({
