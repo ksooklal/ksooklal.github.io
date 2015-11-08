@@ -56,11 +56,11 @@ locations.push(new SportsLocation({
 }));
 
 locations.push(new SportsLocation({
-	league: "",
-	locationName: "", sportsCity: "", locationCity: "", 
-	latitude: "", longitude: "",
-	gameName: "", date: "", gameDescription: "",
-	ticketUrl: ""
+	league: "MLS",
+	locationName: "Yankee Stadium", sportsCity: "New York City", locationCity: "New York City", 
+	latitude: "40.829666", longitude: "-73.926148",
+	gameName: "New York City FC vs DC United", date: "08/12/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/New York City FC vs DC United 2015-08-12.pdf"
 }));
 
 /* locations.push(new SportsLocation({
