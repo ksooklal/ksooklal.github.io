@@ -38,6 +38,30 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLB/Baltimore Orioles vs Toronto Blue Jays 2015-09-30.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLB",
+	locationName: "Nationals Park", sportsCity: "Washington, D.C.", locationCity: "Washington, D.C.", 
+	latitude: "38.873", longitude: "-77.0075",
+	gameName: "Washington Nationals vs Philadelphia Phillies", date: "09/27/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLB/Washington Nationals vs Philadelphia Phillies 2015-09-27.pdf"
+}));
+
+locations.push(new SportsLocation({
+	league: "",
+	locationName: "", sportsCity: "", locationCity: "", 
+	latitude: "", longitude: "",
+	gameName: "", date: "", gameDescription: "",
+	ticketUrl: ""
+}));
+
+locations.push(new SportsLocation({
+	league: "",
+	locationName: "", sportsCity: "", locationCity: "", 
+	latitude: "", longitude: "",
+	gameName: "", date: "", gameDescription: "",
+	ticketUrl: ""
+}));
+
 /* locations.push(new SportsLocation({
 	league: "",
 	locationName: "", sportsCity: "", locationCity: "", 
