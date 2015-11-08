@@ -1,4 +1,5 @@
 var locations = [];
+//MLS, Visited
 locations.push(new SportsLocation({
 	league: "MLS",
 	locationName: "RFK Stadium", sportsCity: "Washington, D.C.", locationCity: "Washington, D.C.", 
@@ -7,6 +8,17 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLS/DC United vs Philadelphia Union 2015-07-26.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLS",
+	locationName: "Yankee Stadium", sportsCity: "New York City", locationCity: "New York City", 
+	latitude: "40.829666", longitude: "-73.926148",
+	gameName: "New York City FC vs DC United", date: "08/12/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/New York City FC vs DC United 2015-08-12.pdf"
+}));
+
+//MLS, Not Visited
+
+//NBA, Visited
 locations.push(new SportsLocation({
 	league: "NBA",
 	locationName: "Verizon Center", sportsCity: "Washington, D.C.", locationCity: "Washington, D.C.", 
@@ -31,6 +43,9 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Philadelphia 76ers vs Washington Wizards 2015-04-08.pdf"
 }));
 
+//NBA, Not Visited
+
+//MLB, Visited
 locations.push(new SportsLocation({
 	league: "MLB",
 	locationName: "Camden Yards", sportsCity: "Baltimore", locationCity: "Baltimore", 
@@ -47,6 +62,9 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLB/Washington Nationals vs Philadelphia Phillies 2015-09-27.pdf"
 }));
 
+//MLB, Not Visited
+
+//NFL, Visited
 locations.push(new SportsLocation({
 	league: "NFL",
 	locationName: "FedEx Field", sportsCity: "Washington, D.C.", locationCity: "Landover, MD", 
@@ -55,13 +73,7 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NFL/Washington Redskins vs New York Giants 2013-12-01.pdf"
 }));
 
-locations.push(new SportsLocation({
-	league: "MLS",
-	locationName: "Yankee Stadium", sportsCity: "New York City", locationCity: "New York City", 
-	latitude: "40.829666", longitude: "-73.926148",
-	gameName: "New York City FC vs DC United", date: "08/12/2015", gameDescription: "Regular Season Game",
-	ticketUrl: "../../Sports Travels/MLS/New York City FC vs DC United 2015-08-12.pdf"
-}));
+//NFL, Not Visited
 
 /* locations.push(new SportsLocation({
 	league: "",
