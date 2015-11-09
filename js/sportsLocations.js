@@ -16,6 +16,15 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLS/New York City FC vs DC United 2015-08-12.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLS",
+	locationName: "CenturyLink Field", sportsCity: "Seattle", locationCity: "Seattle", 
+	latitude: "47.59515", longitude: "-122.33163",
+	gameName: "Seattle Sounders vs Colorado Rapids", date: "07/07/2012", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/Seattle Sounders vs Colorado Rapids 2012-07-07.pdf"
+}));
+
+
 //MLS, Not Visited
 
 //NBA, Visited
@@ -42,6 +51,15 @@ locations.push(new SportsLocation({
 	gameName: "Philadelphia 76ers vs Washington Wizards", date: "04/08/2015", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NBA/Philadelphia 76ers vs Washington Wizards 2015-04-08.pdf"
 }));
+
+locations.push(new SportsLocation({
+	league: "NBA",
+	locationName: "Staples Center", sportsCity: "Los Angeles", locationCity: "Los Angeles", 
+	latitude: "34.043", longitude: "-118.2673",
+	gameName: "Los Angeles Lakers vs Boston Celtics", date: "02/21/2014", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Los Angeles Lakers vs Boston Celtics 2014-02-21.pdf"
+}));
+
 
 //NBA, Not Visited
 
