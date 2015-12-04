@@ -70,10 +70,10 @@ locations.push(new SportsLocation({
 
 locations.push(new SportsLocation({
 	league: "NBA",
-	locationName: "Time Warner Cable Arena", sportsCity: "Boston", locationCity: "Boston",
-	latitude: "42.3664", longitude: "-71.062",
-	gameName: "Boston Celtics vs Washington Wizards", date: "11/25/2015", gameDescription: "Regular Season Game",
-	ticketUrl: "../../Sports Travels/NBA/Boston Celtics vs Washington Wizards 2015-11-27.pdf"
+	locationName: "Time Warner Cable Arena", sportsCity: "Charlotte", locationCity: "Charlotte",
+	latitude: "35.225", longitude: "-80.84",
+	gameName: "Charlotte Hornets vs Washington Wizards", date: "11/25/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Charlotte Hornets vs Washington Wizards 2015-11-25.pdf"
 }));
 
 //NBA, Not Visited
