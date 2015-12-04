@@ -68,6 +68,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Boston Celtics vs Washington Wizards 2015-11-27.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "NBA",
+	locationName: "Time Warner Cable Arena", sportsCity: "Boston", locationCity: "Boston",
+	latitude: "42.3664", longitude: "-71.062",
+	gameName: "Boston Celtics vs Washington Wizards", date: "11/25/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Boston Celtics vs Washington Wizards 2015-11-27.pdf"
+}));
+
 //NBA, Not Visited
 
 //MLB, Visited
