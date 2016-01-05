@@ -16,6 +16,13 @@ myAppModule.controller("IndexController", [
 		
 		this.projects = [
 			{
+				projectName: "Twilio Example",
+				projectID: "SampleTwilioProject",
+				projectLink: "https://github.com/ksooklal/SampleTwilioProject",
+				projectDescription: "Small example of how to send SMS messages via Twilio. Use of Twilio number to send SMS messages to valid US 10-digit mobile phone numbers",
+				projectTechnologies: "Java, Twitter API"
+			},
+			{
 				projectName: "Sample Twitter Project",
 				projectID: "SampleTwitterProject",
 				projectLink: "https://github.com/ksooklal/SampleTwitterProject",
