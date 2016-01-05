@@ -16,6 +16,20 @@ myAppModule.controller("IndexController", [
 		
 		this.projects = [
 			{
+				projectName: "Sample Twitter Project",
+				projectID: "SampleTwitterProject",
+				projectLink: "https://github.com/ksooklal/SampleTwitterProject",
+				projectDescription: "Use of the Twitter API to send Tweets, including an example of how to send 2016 NBA All Star Votes via Twitter",
+				projectTechnologies: "Java, Twitter API"
+			},
+			{
+				projectName: "Selenium",
+				projectID: "Selenium",
+				projectLink: "https://github.com/ksooklal/Selenium",
+				projectDescription: "Sample Use Cases of the Selenium UI Test driver, including a ChromeDriver example",
+				projectTechnologies: "Java, Selenium"
+			},
+			{
 				projectName: "Stack",
 				projectID: "Stack",
 				projectLink: "https://github.com/ksooklal/Stack",
