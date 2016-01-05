@@ -20,10 +20,10 @@ myAppModule.controller("IndexController", [
 				projectID: "SampleTwilioProject",
 				projectLink: "https://github.com/ksooklal/SampleTwilioProject",
 				projectDescription: "Small example of how to send SMS messages via Twilio. Use of Twilio number to send SMS messages to valid US 10-digit mobile phone numbers",
-				projectTechnologies: "Java, Twitter API"
+				projectTechnologies: "Java, Twilio API"
 			},
 			{
-				projectName: "Sample Twitter Project",
+				projectName: "Twitter API Example",
 				projectID: "SampleTwitterProject",
 				projectLink: "https://github.com/ksooklal/SampleTwitterProject",
 				projectDescription: "Use of the Twitter API to send Tweets, including an example of how to send 2016 NBA All Star Votes via Twitter",
