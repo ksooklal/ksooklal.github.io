@@ -76,6 +76,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Charlotte Hornets vs Washington Wizards 2015-11-25.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "NBA",
+	locationName: "Air Canada Centre", sportsCity: "Toronto", locationCity: "Toronto",
+	latitude: "43.64342", longitude: "-79.3791",
+	gameName: "Toronto Raptors vs Washington Wizards", date: "01/26/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Toronto Raptors vs Washington Wizards 2016-01-26.pdf"
+}));
+
 //NBA, Not Visited
 
 //MLB, Visited
