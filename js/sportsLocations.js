@@ -84,6 +84,22 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Toronto Raptors vs Washington Wizards 2016-01-26.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "NBA",
+	locationName: "Quicken Loans Arena", sportsCity: "Cleveland", locationCity: "Cleveland",
+	latitude: "41.49664", longitude: "-81.68821",
+	gameName: "Cleveland Cavaliers vs Washington Wizards", date: "03/04/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Cleveland Cavaliers vs Washington Wizards 2016-03-04.pdf"
+}));
+
+locations.push(new SportsLocation({
+	league: "NBA",
+	locationName: "Palace of Auburn Hills", sportsCity: "Detroit", locationCity: "Auburn Hills",
+	latitude: "42.696883", longitude: "-83.245792",
+	gameName: "Detroit Pistons vs Washington Wizards", date: "03/04/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Detroit vs Washington Wizards 2016-04-08.pdf"
+}));
+
 //NBA, Not Visited
 
 //MLB, Visited
