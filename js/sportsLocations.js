@@ -97,7 +97,7 @@ locations.push(new SportsLocation({
 	locationName: "Palace of Auburn Hills", sportsCity: "Detroit", locationCity: "Auburn Hills",
 	latitude: "42.696883", longitude: "-83.245792",
 	gameName: "Detroit Pistons vs Washington Wizards", date: "04/08/2016", gameDescription: "Regular Season Game",
-	ticketUrl: "../../Sports Travels/NBA/Detroit vs Washington Wizards 2016-04-08.pdf"
+	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
 }));
 
 //NBA, Not Visited
