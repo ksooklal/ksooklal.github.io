@@ -11,6 +11,7 @@
 				vertical-align: center;
 			}
 		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="../../js/sportsMapUtilities.js"></script>
 		<script type="text/javascript" src="../../js/sportsLocations.js"></script>
@@ -42,18 +43,97 @@
 					map.setOptions(myOptions);
 				};
 			})();
+			
+			var markerGroups =  {
+				"NFL": [],
+				"NBA": [],
+				"MLB": [],
+				"NHL": [],
+				"MLS": [],
+				"NCAAFB": [],
+				"NCAABB": [],
+				"Other": []
+			};
 
 			function initialize() {
 				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
 				var locations = getSportsLocations();
 				for (var i = 0; i < locations.length; i++) {
-					map.addMarker(createMarker(locations[i]));
+					var location = locations[i];
+					var type = location.type;
+					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null){
+						type = location.league;
+					}
+					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null){
+						type = "Other";
+					}
+					var marker = createMarker(location);
+					markerGroups[type].push(marker);
+					map.addMarker(marker);
 				}
 				
 				google.maps.event.addDomListener(window, "resize", function() {
 					map.setOptions(myOptions);
 				});
+				
+				$(".NFLCheckbox").prop("checked", true);
+				$(".NFLCheckbox").attr("checked", true);
+				
+				$(".NBACheckbox").prop("checked", true);
+				$(".NBACheckbox").attr("checked", true);
+				
+				$(".MLBCheckbox").prop("checked", true);
+				$(".MLBCheckbox").attr("checked", true);
+				
+				$(".NHLCheckbox").prop("checked", true);
+				$(".NHLCheckbox").attr("checked", true);
+				
+				$(".MLSCheckbox").prop("checked", true);
+				$(".MLSCheckbox").attr("checked", true);
+				
+				$(".NCAAFBCheckbox").prop("checked", true);
+				$(".NCAAFBCheckbox").attr("checked", true);
+				
+				$(".NCAABBCheckbox").prop("checked", true);
+				$(".NCAABBCheckbox").attr("checked", true);
+			}
+			
+			function toggleGroup(type) {
+				for (var i = 0; i < markerGroups[type].length; i++) {
+					var marker = markerGroups[type][i];
+					if (!marker.getVisible()) {
+						marker.setVisible(true);
+					} else {
+						marker.setVisible(false);
+					}
+				}
+			}
+			
+			function reset(){
+				map.clearMarkers();
+				$("#NFLCheckbox").prop("checked", true);
+				$("#NFLCheckbox").attr("checked", true);
+				
+				$("#NBACheckbox").prop("checked", true);
+				$("#NBACheckbox").attr("checked", true);
+				
+				$("#MLBCheckbox").prop("checked", true);
+				$("#MLBCheckbox").attr("checked", true);
+				
+				$("#NHLCheckbox").prop("checked", true);
+				$("#NHLCheckbox").attr("checked", true);
+				
+				$("#MLSCheckbox").prop("checked", true);
+				$("#MLSCheckbox").attr("checked", true);
+				
+				$("#NCAAFBCheckbox").prop("checked", true);
+				$("#NCAAFBCheckbox").attr("checked", true);
+				
+				$("#NCAABBCheckbox").prop("checked", true);
+				$("#NCAABBCheckbox").attr("checked", true);
+				
+				window.location.reload();
 			}
 		</script>
 	</head>
@@ -61,23 +141,22 @@
 		<table style = 'margin: 0px; height: 100%; width: 100%;'><tr>
 			<td style = 'width: 15%; background-color: lightgray; vertical-align: top;'>
 				<table style = 'text-align: left; padding: 5px; margin-top:0px;'>
-					<tr><td colspan = '2'><a href = '../../'>Return to Home Page</a></td></tr>
-					<tr><td colspan = '2' style = 'text-align: center'><font size = '3'>&nbsp;</font><br/></td></tr>
-					<tr><td colspan = '2' style = 'text-align: center'><font size = '5'><b>Sports Travels</b></font><br/></td></tr>
-					<tr><td colspan = '2' style = 'text-align: center'><font size = '2'>&nbsp;</font><br/></td></tr>
-					<tr><td style = 'width: 30%'><font size = '4' color = 'black'><b>Pin Color</b></font></td>	<td style = 'text-align: center'><font size = '4' color = 'black'><b>Description</b></font></td></tr>
-					<tr><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>	<td><font color = '#800080'>NFL</font></td></tr>
-					<tr><td><font size = '4' color = '#FF6600'><b>ORANGE</b></font></td>	<td><font color = '#FF6600'>NBA</font></td></tr>
-					<tr><td><font size = '4' color = 'FFFF00'><b>YELLOW</b></font></td>		<td><font color = 'FFFF00'>MLB</font></td></tr>
-					<tr><td><font size = '4' color = 'black'><b>BLACK</b></font></td>		<td><font color = 'black'>NHL</font></td></tr>
-					<tr><td><font size = '4' color = '#008000'><b>GREEN</b></font></td>		<td><font color = '#008000'>MLS</font></td></tr>
-					<tr><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
-					<tr><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
+					<tr><td colspan = '3'><a href = '../../'>Return to Home Page</a></td></tr>
+					<tr><td colspan = '3' style = 'text-align: center'><font size = '3'>&nbsp;</font><br/></td></tr>
+					<tr><td colspan = '3' style = 'text-align: center'><font size = '5'><b>Sports Travels</b></font><br/></td></tr>
+					<tr><td colspan = '3' style = 'text-align: center'><font size = '2'>&nbsp;</font><br/></td></tr>
+					<tr><td><input id="NFLCheckbox" type="checkbox" onclick="toggleGroup('NFL')" checked="checked"></input></td><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>	<td><font color = '#800080'>NFL</font></td></tr>
+					<tr><td><input id="NBACheckbox" type="checkbox" onclick="toggleGroup('NBA')" checked="checked"></input></td><td><font size = '4' color = '#FF6600'><b>ORANGE</b></font></td>	<td><font color = '#FF6600'>NBA</font></td></tr>
+					<tr><td><input id="MLBCheckbox" type="checkbox" onclick="toggleGroup('MLB')" checked="checked"></input></td><td><font size = '4' color = 'FFFF00'><b>YELLOW</b></font></td>		<td><font color = 'FFFF00'>MLB</font></td></tr>
+					<tr><td><input id="NHLCheckbox" type="checkbox" onclick="toggleGroup('NHL')" checked="checked"></input></td><td><font size = '4' color = 'black'><b>BLACK</b></font></td>		<td><font color = 'black'>NHL</font></td></tr>
+					<tr><td><input id="MLSCheckbox" type="checkbox" onclick="toggleGroup('MLS')" checked="checked"></input></td><td><font size = '4' color = '#008000'><b>GREEN</b></font></td>		<td><font color = '#008000'>MLS</font></td></tr>
+					<tr><td><input id="NCAAFBCheckbox" type="checkbox" onclick="toggleGroup('NCAAFB')" checked="checked"></input></td><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
+					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
 					
-					<tr><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
+					<tr><td></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
 					
-					<tr><td colspan = '2'><font size = '3'>&nbsp;</font></td></tr>
-					<tr><td colspan = '2' style = 'text-align:left;'><button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="map.clearMarkers();">Reset</button></td></tr>
+					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
+					<tr><td colspan = '3' style = 'text-align:left;'><button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="reset()">Reset</button></td></tr>
 				</table>
 				
 			</td>
