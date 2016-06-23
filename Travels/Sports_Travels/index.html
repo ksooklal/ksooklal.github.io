@@ -77,26 +77,7 @@
 					map.setOptions(myOptions);
 				});
 				
-				$(".NFLCheckbox").prop("checked", true);
-				$(".NFLCheckbox").attr("checked", true);
-				
-				$(".NBACheckbox").prop("checked", true);
-				$(".NBACheckbox").attr("checked", true);
-				
-				$(".MLBCheckbox").prop("checked", true);
-				$(".MLBCheckbox").attr("checked", true);
-				
-				$(".NHLCheckbox").prop("checked", true);
-				$(".NHLCheckbox").attr("checked", true);
-				
-				$(".MLSCheckbox").prop("checked", true);
-				$(".MLSCheckbox").attr("checked", true);
-				
-				$(".NCAAFBCheckbox").prop("checked", true);
-				$(".NCAAFBCheckbox").attr("checked", true);
-				
-				$(".NCAABBCheckbox").prop("checked", true);
-				$(".NCAABBCheckbox").attr("checked", true);
+				checkAllBoxes();
 			}
 			
 			function toggleGroup(type) {
@@ -110,8 +91,7 @@
 				}
 			}
 			
-			function reset(){
-				map.clearMarkers();
+			function checkAllBoxes(){
 				$("#NFLCheckbox").prop("checked", true);
 				$("#NFLCheckbox").attr("checked", true);
 				
@@ -132,9 +112,47 @@
 				
 				$("#NCAABBCheckbox").prop("checked", true);
 				$("#NCAABBCheckbox").attr("checked", true);
+			}
+			
+			function unCheckAllBoxes(){
+				$("#NFLCheckbox").prop("checked", false);
+				$("#NFLCheckbox").attr("checked", false);
 				
+				$("#NBACheckbox").prop("checked", false);
+				$("#NBACheckbox").attr("checked", false);
+				
+				$("#MLBCheckbox").prop("checked", false);
+				$("#MLBCheckbox").attr("checked", false);
+				
+				$("#NHLCheckbox").prop("checked", false);
+				$("#NHLCheckbox").attr("checked", false);
+				
+				$("#MLSCheckbox").prop("checked", false);
+				$("#MLSCheckbox").attr("checked", false);
+				
+				$("#NCAAFBCheckbox").prop("checked", false);
+				$("#NCAAFBCheckbox").attr("checked", false);
+				
+				$("#NCAABBCheckbox").prop("checked", false);
+				$("#NCAABBCheckbox").attr("checked", false);
+			}
+			
+			function reset(){
+				map.clearMarkers();
+				checkAllBoxes();
 				window.location.reload();
 			}
+			
+			$(document).ready(function(){
+					$('#all').toggle(function(){
+					checkAllBoxes();
+					$(this).val('Deselect All')
+				}, 
+				function(){
+					unCheckAllBoxes();
+					$(this).val('Select All');        
+				})
+			});
 		</script>
 	</head>
 	<body onload="initialize()">
@@ -153,10 +171,11 @@
 					<tr><td><input id="NCAAFBCheckbox" type="checkbox" onclick="toggleGroup('NCAAFB')" checked="checked"></input></td><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
 					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
 					
-					<tr><td></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
+					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
 					
+					<tr><td colspan = '3'>Select/Unselect All</td></tr>
 					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
-					<tr><td colspan = '3' style = 'text-align:left;'><button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="reset()">Reset</button></td></tr>
+					<tr><td><button type="button" id = 'all' value="Select All"></button></td><td colspan = '2' style = 'text-align:left;'><button style = 'margin-top: 10px; margin-left: 5px;' type = 'button' onclick="reset()">Reset</button></td></tr>
 				</table>
 				
 			</td>
