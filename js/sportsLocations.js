@@ -47,7 +47,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "NBA", type: "NBA",
 	locationName: "Wells Fargo Center", sportsCity: "Philadelphia", locationCity: "Phildelphia", 
-	latitude: "39.901204", longitude: "-75.17198",
+	latitude: "39.9012", longitude: "-75.171978",
 	gameName: "Philadelphia 76ers vs Washington Wizards", date: "04/08/2015", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NBA/Philadelphia 76ers vs Washington Wizards 2015-04-08.pdf"
 }));
