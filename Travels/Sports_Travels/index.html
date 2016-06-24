@@ -44,6 +44,8 @@
 				};
 			})();
 			
+			var sports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB", "Other"];
+			
 			var markerGroups =  {
 				"NFL": [],
 				"NBA": [],
@@ -78,6 +80,24 @@
 				});
 			}
 			
+			function showAll(){
+				for (var i = 0; i < sports.length; i++){
+					var sport = sports[i];
+					for (var j = 0; j < markerGroups[sport].length; j++){
+						markerGroups[sport][j].setVisible(true);
+					}
+				}
+			}
+			
+			function hideAll(){
+				for (var i = 0; i < sports.length; i++){
+					var sport = sports[i];
+					for (var j = 0; j < markerGroups[sport].length; j++){
+						markerGroups[sport][j].setVisible(false);
+					}
+				}
+			}
+			
 			function toggleGroup(type) {
 				for (var i = 0; i < markerGroups[type].length; i++) {
 					var marker = markerGroups[type][i];
@@ -87,74 +107,91 @@
 						marker.setVisible(false);
 					}
 				}
+				if (checkIfAllDeselected()){
+					$("#deselectAll").hide();
+					$("#selectAll").show();
+				} else {
+					if (checkIfAllSelected()){
+						$("#deselectAll").show();
+						$("#selectAll").hide();
+					}
+				}
+			}
+			
+			function checkIfAllDeselected(){
+				return !$("#MLSCheckbox").is(":checked") && 
+					!$("#NFLCheckbox").is(":checked") &&
+					!$("#NBACheckbox").is(":checked") &&
+					!$("#MLBCheckbox").is(":checked") &&
+					!$("#NHLCheckbox").is(":checked") &&
+					!$("#NCAAFBCheckbox").is(":checked") &&
+					!$("#NCAABBCheckbox").is(":checked") &&
+					!$("#OtherCheckbox").is(":checked");
+			}
+			
+			function checkIfAllSelected(){
+				return $("#MLSCheckbox").is(":checked") && 
+					$("#NFLCheckbox").is(":checked") &&
+					$("#NBACheckbox").is(":checked") &&
+					$("#MLBCheckbox").is(":checked") &&
+					$("#NHLCheckbox").is(":checked") &&
+					$("#NCAAFBCheckbox").is(":checked") &&
+					$("#NCAABBCheckbox").is(":checked") &&
+					$("#OtherCheckbox").is(":checked");
 			}
 			
 			function checkAllBoxes(){
-				$("#NFLCheckbox").click();
 				$("#NFLCheckbox").prop("checked", true);
 				$("#NFLCheckbox").attr("checked", true);
-				
-				$("#NBACheckbox").click();
+
 				$("#NBACheckbox").prop("checked", true);
 				$("#NBACheckbox").attr("checked", true);
 				
-				$("#MLBCheckbox").click();
 				$("#MLBCheckbox").prop("checked", true);
 				$("#MLBCheckbox").attr("checked", true);
-				
-				$("#NHLCheckbox").click();
+	
 				$("#NHLCheckbox").prop("checked", true);
 				$("#NHLCheckbox").attr("checked", true);
-				
-				$("#MLSCheckbox").click();
+
 				$("#MLSCheckbox").prop("checked", true);
 				$("#MLSCheckbox").attr("checked", true);
-				
-				$("#NCAAFBCheckbox").click();
+
 				$("#NCAAFBCheckbox").prop("checked", true);
 				$("#NCAAFBCheckbox").attr("checked", true);
-			
-				$("#NCAABBCheckbox").click();	
+	
 				$("#NCAABBCheckbox").prop("checked", true);
 				$("#NCAABBCheckbox").attr("checked", true);
-			
-				$("#OtherCheckbox").click();	
+
 				$("#OtherCheckbox").prop("checked", true);
 				$("#OtherCheckbox").attr("checked", true);
+				showAll();
 			}
 			
 			function unCheckAllBoxes(){
-				$("#NFLCheckbox").click();
 				$("#NFLCheckbox").prop("checked", false);
 				$("#NFLCheckbox").attr("checked", false);
 				
-				$("#NBACheckbox").click();
 				$("#NBACheckbox").prop("checked", false);
 				$("#NBACheckbox").attr("checked", false);
 				
-				$("#MLBCheckbox").click();	
 				$("#MLBCheckbox").prop("checked", false);
 				$("#MLBCheckbox").attr("checked", false);
 				
-				$("#NHLCheckbox").click();	
 				$("#NHLCheckbox").prop("checked", false);
 				$("#NHLCheckbox").attr("checked", false);
 			
-				$("#MLSCheckbox").click();
 				$("#MLSCheckbox").prop("checked", false);
 				$("#MLSCheckbox").attr("checked", false);
 				
-				$("#NCAAFBCheckbox").click();
 				$("#NCAAFBCheckbox").prop("checked", false);
 				$("#NCAAFBCheckbox").attr("checked", false);
 				
-				$("#NCAABBCheckbox").click();
 				$("#NCAABBCheckbox").prop("checked", false);
 				$("#NCAABBCheckbox").attr("checked", false);
 				
-				$("#OtherCheckbox").click();
 				$("#OtherCheckbox").prop("checked", false);
 				$("#OtherCheckbox").attr("checked", false);
+				hideAll();
 			}
 			
 			function reset(){
