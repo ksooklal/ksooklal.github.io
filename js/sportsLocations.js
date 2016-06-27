@@ -119,6 +119,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLB/Washington Nationals vs Philadelphia Phillies 2015-09-27.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLB", type: "MLB",
+	locationName: "Citi Field", sportsCity: "New York", locationCity: "New York", 
+	latitude: "40.7570877", longitude: "-73.8458213",
+	gameName: "New York Mets vs Washington Nationals", date: "07/08/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "d"
+}));
+
 //MLB, Not Visited
 
 //NFL, Visited
