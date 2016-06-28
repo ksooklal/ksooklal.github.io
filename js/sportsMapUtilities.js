@@ -32,38 +32,42 @@ function SportsLocation(location) {
 }
 
 function getColorOfMarker(location){
+	var type = cleanUpString(location.type);
 	var league = cleanUpString(location.league);
-	var date = cleanUpString(location.date);
-	if (league === "" || date === ""){
+	
+	if (type === "NotVisited"){
 		return WHITE;
-	}	
-	if (league === "NFL"){
+	}
+	
+	if (type === "NFL"){
 		return PURPLE;
 	}
 	
-	if (league === "NBA"){
+	if (type === "NBA"){
 		return ORANGE;
 	}
 	
-	if (league === "MLB"){
+	if (type === "MLB"){
 		return YELLOW;
 	}
 	
-	if (league === "NHL"){
+	if (type === "NHL"){
 		return BLACK;
 	}
 	
-	if (league === "MLS"){
+	if (type === "MLS"){
 		return GREEN;
 	}
 	
-	if (league === "NCAAFB" || league === "NCAAF" || league === "NCAA Football"){
+	if (league === "NCAAFB" || league === "NCAAF" || league === "NCAA Football" || type === "NCAAFB"){
 		return BROWN;
 	}
 
-	if (league === "NCAABB" || league === "NCAA Basketball" || league === "NCAA Men's Basketball"){
+	if (league === "NCAABB" || league === "NCAA Basketball" || league === "NCAA Men's Basketball" || type === "NCAABB"){
 		return RED;
 	}
+	
+	return GREY;
 }
 
 function getContentOfMarker(location){
@@ -71,7 +75,7 @@ function getContentOfMarker(location){
 	var htmlString = "<font size = '3'><b>" + game + "</b></font>";
 	var stadium = location.locationName;
 	var date = location.date;
-	htmlString += ("<br/>" + stadium);
+	htmlString += ("<br/>" + stadium + ", " + location.locationCity);
 	var url = location.ticketUrl;
 	htmlString += ("<br/><a href = '" + url + "' target = '_blank'>" + date + "</a><br/>");
 	return htmlString;
@@ -104,6 +108,7 @@ var YELLOW = "FFFF00";
 var BLACK = "000000";
 var PINK = "DA70D6";
 var RED = "CC0000";
+var GREY = "BFC9CA";
 //var LIGHT_BROWN = "D2691E";
 var BROWN = "8B4513";
 var GREEN = "008000";

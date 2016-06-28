@@ -44,7 +44,7 @@
 				};
 			})();
 			
-			var sports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB", "Other"];
+			var sports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB", "Other", "NotVisited"];
 			
 			var markerGroups =  {
 				"NFL": [],
@@ -54,7 +54,8 @@
 				"MLS": [],
 				"NCAAFB": [],
 				"NCAABB": [],
-				"Other": []
+				"Other": [],
+				"NotVisited": []
 			};
 
 			function initialize() {
@@ -64,11 +65,21 @@
 				for (var i = 0; i < locations.length; i++) {
 					var location = locations[i];
 					var type = location.type;
-					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null){
+					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null ||
+						type === ""){
 						type = location.league;
+						location.type = type;
 					}
-					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null){
+					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null
+						|| type === ""){
 						type = "Other";
+						location.type = type;
+					}
+					var url = location.ticketUrl;
+					if (url === undefined || url == undefined || typeof (url) === "undefined" || url === null || url == null ||
+						url === ""){
+						type = "NotVisited";
+						location.type = type;
 					}
 					var marker = createMarker(location);
 					markerGroups[type].push(marker);
@@ -126,7 +137,7 @@
 					!$("#NHLCheckbox").is(":checked") &&
 					!$("#NCAAFBCheckbox").is(":checked") &&
 					!$("#NCAABBCheckbox").is(":checked") &&
-					!$("#OtherCheckbox").is(":checked");
+					!$("#NotVisitedCheckbox").is(":checked");
 			}
 			
 			function checkIfAllSelected(){
@@ -137,60 +148,22 @@
 					$("#NHLCheckbox").is(":checked") &&
 					$("#NCAAFBCheckbox").is(":checked") &&
 					$("#NCAABBCheckbox").is(":checked") &&
-					$("#OtherCheckbox").is(":checked");
+					$("#NotVisitedCheckbox").is(":checked");
 			}
 			
 			function checkAllBoxes(){
-				$("#NFLCheckbox").prop("checked", true);
-				$("#NFLCheckbox").attr("checked", true);
-
-				$("#NBACheckbox").prop("checked", true);
-				$("#NBACheckbox").attr("checked", true);
-				
-				$("#MLBCheckbox").prop("checked", true);
-				$("#MLBCheckbox").attr("checked", true);
-	
-				$("#NHLCheckbox").prop("checked", true);
-				$("#NHLCheckbox").attr("checked", true);
-
-				$("#MLSCheckbox").prop("checked", true);
-				$("#MLSCheckbox").attr("checked", true);
-
-				$("#NCAAFBCheckbox").prop("checked", true);
-				$("#NCAAFBCheckbox").attr("checked", true);
-	
-				$("#NCAABBCheckbox").prop("checked", true);
-				$("#NCAABBCheckbox").attr("checked", true);
-
-				$("#OtherCheckbox").prop("checked", true);
-				$("#OtherCheckbox").attr("checked", true);
+				for (var i = 0; i < sports.length; i++){
+					$("#" + sports[i] + "Checkbox").prop("checked", true);
+					$("#" + sports[i] + "Checkbox").attr("checked", true);
+				}
 				showAll();
 			}
 			
 			function unCheckAllBoxes(){
-				$("#NFLCheckbox").prop("checked", false);
-				$("#NFLCheckbox").attr("checked", false);
-				
-				$("#NBACheckbox").prop("checked", false);
-				$("#NBACheckbox").attr("checked", false);
-				
-				$("#MLBCheckbox").prop("checked", false);
-				$("#MLBCheckbox").attr("checked", false);
-				
-				$("#NHLCheckbox").prop("checked", false);
-				$("#NHLCheckbox").attr("checked", false);
-			
-				$("#MLSCheckbox").prop("checked", false);
-				$("#MLSCheckbox").attr("checked", false);
-				
-				$("#NCAAFBCheckbox").prop("checked", false);
-				$("#NCAAFBCheckbox").attr("checked", false);
-				
-				$("#NCAABBCheckbox").prop("checked", false);
-				$("#NCAABBCheckbox").attr("checked", false);
-				
-				$("#OtherCheckbox").prop("checked", false);
-				$("#OtherCheckbox").attr("checked", false);
+				for (var i = 0; i < sports.length; i++){
+					$("#" + sports[i] + "Checkbox").prop("checked", false);
+					$("#" + sports[i] + "Checkbox").attr("checked", false);
+				}
 				hideAll();
 			}
 			
@@ -229,7 +202,8 @@
 					<tr><td><input id="MLSCheckbox" type="checkbox" onclick="toggleGroup('MLS')" checked="checked"></input></td><td><font size = '4' color = '#008000'><b>GREEN</b></font></td>		<td><font color = '#008000'>MLS</font></td></tr>
 					<tr><td><input id="NCAAFBCheckbox" type="checkbox" onclick="toggleGroup('NCAAFB')" checked="checked"></input></td><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
 					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
-					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
+					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')" checked="checked"></input></td><td><font size = '4' color = '#BFC9CA'><b>GREY</b></font></td>		<td><font color = '#BFC9CA'>Other</font></td></tr>
+					<tr><td><input id="NotVisitedCheckbox" type="checkbox" onclick="toggleGroup('NotVisited')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
 					
 					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
 					<tr>
@@ -247,6 +221,10 @@
 		</tr></table>
 		<!-- 
 			Credit to http://jsfiddle.net/YEPB7/6/ for providing a simple way of toggling Google API Markers with checkboxes.
+			
+			Credit to Google Maps for providing a simple API for custom colored Google Maps Markers. http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569
+		
+			Credit to w3schools.com for providing a simple HTML color code reference: http://www.w3schools.com/colors/colors_picker.asp http://www.w3schools.com/colors/colors_names.asp
 		-->
 	</body>
 </html>
