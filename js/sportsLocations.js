@@ -30,7 +30,7 @@ locations.push(new SportsLocation({
 	locationName: "Talen Energy Stadium", sportsCity: "Philadelphia", locationCity: "Chester PA", 
 	latitude: "39.832767", longitude: "-75.378435",
 	gameName: "Philadelphia Union vs DC United", date: "07/09/2016", gameDescription: "Regular Season Game",
-	ticketUrl: ""
+	ticketUrl: "../../Sports Travels/MLS/Philadelphia Union vs DC United 2016-07-09.pdf"
 }));
 
 //MLS, Not Visited
@@ -132,7 +132,7 @@ locations.push(new SportsLocation({
 	locationName: "Citi Field", sportsCity: "New York", locationCity: "New York, NY", 
 	latitude: "40.7570877", longitude: "-73.8458213",
 	gameName: "New York Mets vs Washington Nationals", date: "07/08/2016", gameDescription: "Regular Season Game",
-	ticketUrl: ""
+	ticketUrl: "../../Sports Travels/MLB/New York Mets vs Washington Nationals 2016-07-08.pdf"
 }));
 
 //MLB, Not Visited
