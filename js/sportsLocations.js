@@ -24,13 +24,20 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLS/Seattle Sounders vs Colorado Rapids 2012-07-07.pdf"
 }));
 
-
 locations.push(new SportsLocation({
 	league: "MLS", type: "MLS",
 	locationName: "Talen Energy Stadium", sportsCity: "Philadelphia", locationCity: "Chester PA", 
 	latitude: "39.832767", longitude: "-75.378435",
 	gameName: "Philadelphia Union vs DC United", date: "07/09/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLS/Philadelphia Union vs DC United 2016-07-09.pdf"
+}));
+
+locations.push(new SportsLocation({
+	league: "MLS", type: "MLS",
+	locationName: "Red Bull Arena", sportsCity: "New York", locationCity: "Harrison, NJ", 
+	latitude: "40.736834", longitude: "-74.150405",
+	gameName: "Seattle Sounders vs Colorado Rapids", date: "09/11/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/New York Red Bulls vs DC United 2016-09-11.pdf"
 }));
 
 //MLS, Not Visited
@@ -150,6 +157,17 @@ locations.push(new SportsLocation({
 
 //NHL, Visited
 //NHL, Not Visited
+
+//NCAA, Visited
+locations.push(new SportsLocation({
+	league: "NCAABB", type: "NCAABB",
+	locationName: "Xfinity Center", sportsCity: "College Park", locationCity: "College Park", 
+	latitude: "", longitude: "",
+	gameName: "Maryland Terrapins vs. Michigan State Spartans", date: "01/17/2015", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NCAA Basketball/Maryland Terrapins vs Michigan State 2016-01-17.pdf"
+}));
+
+//NCAA, Not Visited
 
 //Other, Visited
 //Other, Not Visited
