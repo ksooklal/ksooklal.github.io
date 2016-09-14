@@ -35,7 +35,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "MLS", type: "MLS",
 	locationName: "Red Bull Arena", sportsCity: "New York", locationCity: "Harrison, NJ", 
-	latitude: "40.736833", longitude: "-74.150405",
+	latitude: "40.736832", longitude: "-74.150405",
 	gameName: "Seattle Sounders vs Colorado Rapids", date: "09/11/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLS/New York Red Bulls vs DC United 2016-09-11.pdf"
 }));
