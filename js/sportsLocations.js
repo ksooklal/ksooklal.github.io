@@ -26,7 +26,7 @@ locations.push(new SportsLocation({
 
 locations.push(new SportsLocation({
 	league: "MLS", type: "MLS",
-	locationName: "Talen Energy Stadium", sportsCity: "Philadelphia", locationCity: "Chester PA", 
+	locationName: "Talen Energy Stadium", sportsCity: "Philadelphia", locationCity: "Chester, PA", 
 	latitude: "39.832767", longitude: "-75.378435",
 	gameName: "Philadelphia Union vs DC United", date: "07/09/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLS/Philadelphia Union vs DC United 2016-07-09.pdf"
@@ -36,8 +36,16 @@ locations.push(new SportsLocation({
 	league: "MLS", type: "MLS",
 	locationName: "Red Bull Arena", sportsCity: "New York", locationCity: "Harrison, NJ", 
 	latitude: "40.736831", longitude: "-74.150405",
-	gameName: "Seattle Sounders vs Colorado Rapids", date: "09/11/2016", gameDescription: "Regular Season Game",
+	gameName: "New York Red Bulls vs DC United", date: "09/11/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLS/New York Red Bulls vs DC United 2016-09-11.pdf"
+}));
+
+locations.push(new SportsLocation({
+	league: "MLS", type: "MLS",
+	locationName: "Toyota Park", sportsCity: "Chicago Fire", locationCity: "Bridgeview, IL", 
+	latitude: "41.76422", longitude: "-87.80577",
+	gameName: "Chicago Fire vs DC United", date: "09/16/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/Chicago Fire vs DC United 2016-09-16.pdf"
 }));
 
 //MLS, Not Visited
@@ -145,6 +153,14 @@ locations.push(new SportsLocation({
 //MLB, Not Visited
 
 //NFL, Visited
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "FirstEnergy Stadium", sportsCity: "Cleveland, OH", locationCity: "Cleveland, OH", 
+	latitude: "41.50586", longitude: "-81.69898",
+	gameName: "Cleveland Browns vs Baltimore Ravens", date: "09/18/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NFL/Cleveland Browns vs Baltimore Ravens 2016-09-18.pdf"
+}));
+
 locations.push(new SportsLocation({
 	league: "NFL", type: "NFL",
 	locationName: "FedEx Field", sportsCity: "Washington, D.C.", locationCity: "Landover, MD", 
