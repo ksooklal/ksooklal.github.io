@@ -172,7 +172,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "NFL", type: "NFL",
 	locationName: "M&T Bank Stadium", sportsCity: "Baltimore, MD", locationCity: "Baltimore, MD", 
-	latitude: "39.278", longitude: "-76.6249",
+	latitude: "39.278", longitude: "-76.6248",
 	gameName: "Baltimore Ravens vs Oakland Raiders", date: "10/02/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NFL/Baltimore Ravens vs Oakland Raiders 2016-10-02.pdf"
 }));
