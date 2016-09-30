@@ -169,6 +169,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NFL/Washington Redskins vs New York Giants 2013-12-01.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "M&T Bank Stadium", sportsCity: "Baltimore, MD", locationCity: "Baltimore, MD", 
+	latitude: "39.278", longitude: "-76.6249",
+	gameName: "Baltimore Ravens vs Oakland Raiders", date: "10/02/2016", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NFL/Baltimore Ravens vs Oakland Raiders 2016-10-02.pdf"
+}));
+
 //NFL, Not Visited
 
 //NHL, Visited
