@@ -129,7 +129,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "MLB", type: "MLB",
 	locationName: "Camden Yards", sportsCity: "Baltimore", locationCity: "Baltimore, MD", 
-	latitude: "39.284", longitude: "-76.622",
+	latitude: "39.284", longitude: "-76.6215",
 	gameName: "Baltimore Orioles vs Toronto Blue Jays", date: "09/30/2015", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLB/Baltimore Orioles vs Toronto Blue Jays 2015-09-30.pdf"
 }));
@@ -172,7 +172,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "NFL", type: "NFL",
 	locationName: "M&T Bank Stadium", sportsCity: "Baltimore, MD", locationCity: "Baltimore, MD", 
-	latitude: "39.278", longitude: "-76.6246",
+	latitude: "39.278", longitude: "-76.6216",
 	gameName: "Baltimore Ravens vs Oakland Raiders", date: "10/02/2016", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NFL/Baltimore Ravens vs Oakland Raiders 2016-10-02.pdf"
 }));
