@@ -177,6 +177,15 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NFL/Baltimore Ravens vs Oakland Raiders 2016-10-02.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Paul Brown Stadium", sportsCity: "Cincinnati", locationCity: "Cincinnati, OH", 
+	latitude: "39.095457", longitude: "-84.516057",
+	gameName: "Cincinnati Bengals vs Baltimore Ravens", date: "01/01/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NFL/Cincinnati Bengals vs Baltimore Ravens 2017-01-01.pdf"
+}));
+
+
 //NFL, Not Visited
 
 //NHL, Visited
