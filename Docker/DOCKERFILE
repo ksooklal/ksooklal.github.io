@@ -1,0 +1,34 @@
+#DOCKER FILE
+
+FROM openjdk
+MAINTAINER Kristian Sooklal <k.sooklal@yahoo.com>
+
+run rm -f *.class
+
+run rm -f *.txt
+
+add Selenium.sh /
+
+add chromedriver.exe /
+
+ADD TestRunner.java /
+
+add SeleniumTestTellCharleysSurveyUtility.java /
+
+run mkdir -p lib
+
+add lib/selenium-api-2.46.0.jar /lib
+
+add lib/selenium-chrome-driver-2.46.0.jar /lib
+
+add lib/selenium-java-2.46.0.jar /lib
+
+add lib/selenium-server-standalone-2.48.2.jar /lib
+
+add lib/selenium-support-2.46.0.jar /lib
+
+add lib/slf4j-api-1.7.12.jar /lib
+
+run mkdir -p /home/user/myVolume
+
+volume /home/user/myVolume
