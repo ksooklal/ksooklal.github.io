@@ -86,9 +86,20 @@
 					map.addMarker(marker);
 				}
 				
+				defaultNotVisitedBehavior();
+				
 				google.maps.event.addDomListener(window, "resize", function() {
 					map.setOptions(myOptions);
 				});
+			}
+			
+			function defaultNotVisitedBehavior(){
+				if (!$("#NotVisitedCheckbox").is(":checked")){
+					for (var i = 0; i < markerGroups["NotVisited"].length; i++) {
+						var marker = markerGroups["NotVisited"][i];
+						marker.setVisible(false);
+					}
+				}
 			}
 			
 			function showAll(){
