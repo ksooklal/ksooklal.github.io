@@ -128,8 +128,26 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "NBA", type: "NBA",
 	locationName: "Madison Square Garden", sportsCity: "New York", locationCity: "New York, NY",
-	latitude: "40.750428", longitude: "-73.9934",
+	latitude: "40.7505", longitude: "-73.9934",
 	gameName: "New York Knicks vs Washington Wizards", date: "01/19/2017", gameDescription: "Regular Season Game" //,
+//	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
+}));
+
+//33.7573463,-84.3965325
+locations.push(new SportsLocation({
+	league: "NBA", type: "NBA",
+	locationName: "Philips Arena", sportsCity: "Atlanta", locationCity: "Atlanta, GA",
+	latitude: "33.757346", longitude: "-84.396532",
+	gameName: "Atlanta Hawks vs Washington Wizards", date: "01/27/2017", gameDescription: "Regular Season Game" //,
+//	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
+}));
+
+//39.7639541,-86.1555875
+locations.push(new SportsLocation({
+	league: "NBA", type: "NBA",
+	locationName: "Bankers Life Fieldhouse", sportsCity: "Indiana", locationCity: "Indiana, IN",
+	latitude: "39.763954", longitude: "-86.155588",
+	gameName: "Indiana Pacers vs Washington Wizards", date: "02/16/2017", gameDescription: "Regular Season Game" //,
 //	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
 }));
 
