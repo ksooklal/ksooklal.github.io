@@ -124,6 +124,15 @@ locations.push(new SportsLocation({
 }));
 
 //NBA, Not Visited
+//40.7504281,-73.9933976
+locations.push(new SportsLocation({
+	league: "NBA", type: "NBA",
+	locationName: "Madison Square Garden", sportsCity: "New York", locationCity: "New York, NY",
+	latitude: "40.750428", longitude: "-73.9934",
+	gameName: "New York Knicks vs Washington Wizards", date: "01/19/2017", gameDescription: "Regular Season Game" //,
+//	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
+}));
+
 
 //MLB, Visited
 locations.push(new SportsLocation({
