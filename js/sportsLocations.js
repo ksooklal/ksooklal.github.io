@@ -129,8 +129,8 @@ locations.push(new SportsLocation({
 	league: "NBA", type: "NBA",
 	locationName: "Madison Square Garden", sportsCity: "New York", locationCity: "New York, NY",
 	latitude: "40.7505", longitude: "-73.9934",
-	gameName: "New York Knicks vs Washington Wizards", date: "01/19/2017", gameDescription: "Regular Season Game" //,
-//	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
+	gameName: "New York Knicks vs Washington Wizards", date: "01/19/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/New York Knicks vs Washington Wizards 2017-01-01.pdf"
 }));
 
 //33.7573463,-84.3965325
