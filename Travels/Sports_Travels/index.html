@@ -33,7 +33,7 @@
 				};
 				
 				google.maps.Map.prototype.getMarkers = function() {
-					return this.markers
+					return this.markers;
 				};
 				
 				google.maps.Map.prototype.clearMarkers = function() {
@@ -45,6 +45,7 @@
 			})();
 			
 			var sports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB", "Other", "NotVisited"];
+			var NFLCount = 4;
 			
 			var markerGroups =  {
 				"NFL": [],
@@ -57,6 +58,30 @@
 				"Other": [],
 				"NotVisited": []
 			};
+			
+			function setTitleAttributes(allTickets){
+				var NFLCount = allTickets["NFL"].length;
+				var NBACount = allTickets["NBA"].length;
+				var MLSCount = allTickets["MLS"].length;
+				var NHLCount = allTickets["NHL"].length;
+				var MLBCount = allTickets["MLB"].length;
+				var NCAAFBCount = allTickets["NCAAFB"].length;
+				var NCAABBCount = allTickets["NCAABB"].length;
+				var OtherCount = allTickets["Other"].length;
+				
+				$("#nflCell").prop("title", "Visited: " + NFLCount + "/32");
+				$("#nbaCell").prop("title", "Visited: " + NBACount + "/30");
+				$("#nhlCell").prop("title", "Visited: " + NHLCount + "/30");
+				$("#mlsCell").prop("title", "Visited: " + MLSCount + "/22");
+				$("#mlbCell").prop("title", "Visited: " + MLBCount + "/30");
+				$("#ncaaFBCell").prop("title", "Visited: " + NCAAFBCount);
+				$("#ncaaBBCell").prop("title", "Visited: " + NCAABBCount);
+				$("#OtherCell").prop("title", "Visited: " + OtherCount);
+				
+				var proLeagueSum = NFLCount + NBACount + NHLCount + MLSCount + MLBCount;
+				
+				$("#totalCell").html("<b>" + proLeagueSum + "/144</b>");
+			}
 
 			function initialize() {
 				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -86,11 +111,12 @@
 					map.addMarker(marker);
 				}
 				
-				defaultNotVisitedBehavior();
+				defaultNotVisitedBehavior(markerGroups);
 				
 				google.maps.event.addDomListener(window, "resize", function() {
 					map.setOptions(myOptions);
 				});
+				setTitleAttributes(markerGroups);
 			}
 			
 			function defaultNotVisitedBehavior(){
@@ -206,15 +232,16 @@
 					<tr><td colspan = '3' style = 'text-align: center'><font size = '3'>&nbsp;</font><br/></td></tr>
 					<tr><td colspan = '3' style = 'text-align: center'><font size = '5'><b>Sports Travels</b></font><br/></td></tr>
 					<tr><td colspan = '3' style = 'text-align: center'><font size = '2'>&nbsp;</font><br/></td></tr>
-					<tr><td><input id="NFLCheckbox" type="checkbox" onclick="toggleGroup('NFL')" checked="checked"></input></td><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>	<td><font color = '#800080'>NFL</font></td></tr>
-					<tr><td><input id="NBACheckbox" type="checkbox" onclick="toggleGroup('NBA')" checked="checked"></input></td><td><font size = '4' color = '#FF6600'><b>ORANGE</b></font></td>	<td><font color = '#FF6600'>NBA</font></td></tr>
-					<tr><td><input id="MLBCheckbox" type="checkbox" onclick="toggleGroup('MLB')" checked="checked"></input></td><td><font size = '4' color = 'FFFF00'><b>YELLOW</b></font></td>		<td><font color = 'FFFF00'>MLB</font></td></tr>
-					<tr><td><input id="NHLCheckbox" type="checkbox" onclick="toggleGroup('NHL')" checked="checked"></input></td><td><font size = '4' color = 'black'><b>BLACK</b></font></td>		<td><font color = 'black'>NHL</font></td></tr>
-					<tr><td><input id="MLSCheckbox" type="checkbox" onclick="toggleGroup('MLS')" checked="checked"></input></td><td><font size = '4' color = '#008000'><b>GREEN</b></font></td>		<td><font color = '#008000'>MLS</font></td></tr>
-					<tr><td><input id="NCAAFBCheckbox" type="checkbox" onclick="toggleGroup('NCAAFB')" checked="checked"></input></td><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td><font color = '#8B4513'>NCAA Football</font></td></tr>
-					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>		<td><font color = '#CC0000'>NCAA Basketball</font></td></tr>
-					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')" checked="checked"></input></td><td><font size = '4' color = '#BFC9CA'><b>GREY</b></font></td>		<td><font color = '#BFC9CA'>Other</font></td></tr>
-					<tr><td><input id="NotVisitedCheckbox" type="checkbox" onclick="toggleGroup('NotVisited')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>		<td><font color = 'white'>Not Yet Visited</font></td></tr>
+					<tr><td><input id="NFLCheckbox" type="checkbox" onclick="toggleGroup('NFL')" checked="checked"></input></td><td><font size = '4' color = '#800080'><b>PURPLE</b></font></td>			<td id = 'nflCell'><font color = '#800080'>NFL</font></td></tr>
+					<tr><td><input id="NBACheckbox" type="checkbox" onclick="toggleGroup('NBA')" checked="checked"></input></td><td><font size = '4' color = '#FF6600'><b>ORANGE</b></font></td>			<td id = 'nbaCell'><font color = '#FF6600'>NBA</font></td></tr>
+					<tr><td><input id="MLBCheckbox" type="checkbox" onclick="toggleGroup('MLB')" checked="checked"></input></td><td><font size = '4' color = 'FFFF00'><b>YELLOW</b></font></td>				<td id = 'mlbCell'><font color = 'FFFF00'>MLB</font></td></tr>
+					<tr><td><input id="NHLCheckbox" type="checkbox" onclick="toggleGroup('NHL')" checked="checked"></input></td><td><font size = '4' color = 'black'><b>BLACK</b></font></td>				<td id = 'nhlCell'><font color = 'black'>NHL</font></td></tr>
+					<tr><td><input id="MLSCheckbox" type="checkbox" onclick="toggleGroup('MLS')" checked="checked"></input></td><td><font size = '4' color = '#008000'><b>GREEN</b></font></td>				<td id = 'mlsCell'><font color = '#008000'>MLS</font></td></tr>
+					<tr><td><input id="NCAAFBCheckbox" type="checkbox" onclick="toggleGroup('NCAAFB')" checked="checked"></input></td><td><font size = '4' color = '#8B4513'><b>BROWN</b></font></td>		<td id = 'ncaaFBCell'><font color = '#8B4513'>NCAA Football</font></td></tr>
+					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>			<td id = 'ncaaBBCell'><font color = '#CC0000'>NCAA Basketball</font></td></tr>
+					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')" checked="checked"></input></td><td><font size = '4' color = '#BFC9CA'><b>GREY</b></font></td>			<td id = 'otherCell'><font color = '#BFC9CA'>Other</font></td></tr>
+					<tr><td><input id="NotVisitedCheckbox" type="checkbox" onclick="toggleGroup('NotVisited')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>					<td id = 'notVisitedCell'><font color = 'white'>Not Yet Visited</font></td></tr>
+					<tr><td colspan = '2'><font size = '4' color = 'black'><b>TOTAL VISITED:</b></font></td><td id = 'totalCell' title = '(NFL, MLB, MLS, NBA, NHL)'></td></tr>
 					
 					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
 					<tr>
