@@ -177,6 +177,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLB/New York Mets vs Washington Nationals 2016-07-08.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLB", type: "MLB",
+	locationName: "Citizens Bank Park", sportsCity: "Philadelphia", locationCity: "Phildelphia, PA", 
+	latitude: "39.9060568", longitude: "-75.166495",
+	gameName: "Philadelphia 76ers vs Washington Wizards", date: "04/08/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Philadelphia Phillies vs Washington Nationals 2017-04-08.pdf"
+}));
+
 //MLB, Not Visited
 
 //NFL, Visited
