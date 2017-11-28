@@ -151,6 +151,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Indiana Pacers vs Washington Wizards 2017-02-16.pdf"
 }));
 
+//43.04365,-87.91724
+locations.push(new SportsLocation({
+	league: "NBA", type: "NBA",
+	locationName: "BMO Harris Bradley Center", sportsCity: "Milwaukee", locationCity: "Milwaukee, WI",
+	latitude: "43.043646", longitude: "-87.917243",
+	gameName: "Milwaukee Bucks vs Washington Wizards", date: "11/20/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NBA/Milwaukee Bucks vs Washington Wizards 2017-11-20.pdf"
+}));
 
 //MLB, Visited
 locations.push(new SportsLocation({
@@ -219,6 +227,15 @@ locations.push(new SportsLocation({
 	gameName: "Cincinnati Bengals vs Baltimore Ravens", date: "01/01/2017", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NFL/Cincinnati Bengals vs Baltimore Ravens 2017-01-01.pdf"
 }));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Lambeau Field", sportsCity: "Green Bay", locationCity: "Green Bay, WI", 
+	latitude: "44.501345", longitude: "-88.06222",
+	gameName: "Green Bay Packers vs Baltimore Ravens", date: "11/28/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NFL/Green Bay Packers vs Baltimore Ravens 2017-11-19.pdf"
+}));
+
 
 
 //NFL, Not Visited
