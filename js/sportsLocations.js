@@ -51,7 +51,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "MLS", type: "MLS",
 	locationName: "Dick's Sporting Goods Park", sportsCity: "Denver", locationCity: "Commerce City, CO", 
-	latitude: "39.8056893", longitude: "-104.891926",
+	latitude: "39.805685", longitude: "-104.891813",
 	gameName: "Colorado Rapids vs DC United", date: "08/19/2017", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/MLS/Colorado Rapids vs DC United 2017-08-19.pdf"
 }));
