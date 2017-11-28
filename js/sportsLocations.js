@@ -48,6 +48,14 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/MLS/Chicago Fire vs DC United 2016-09-16.pdf"
 }));
 
+locations.push(new SportsLocation({
+	league: "MLS", type: "MLS",
+	locationName: "Dick's Sporting Goods Park", sportsCity: "Denver", locationCity: "Commerce City, CO", 
+	latitude: "39.8056893", longitude: "-104.891926",
+	gameName: "Colorado Rapids vs DC United", date: "08/19/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/MLS/Colorado Rapids vs DC United 2017-08-19.pdf"
+}));
+
 //MLS, Not Visited
 
 //NBA, Visited
@@ -123,7 +131,6 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Detroit Pistons vs Washington Wizards 2016-04-08.pdf"
 }));
 
-//NBA, Not Visited
 //40.7504281,-73.9933976
 locations.push(new SportsLocation({
 	league: "NBA", type: "NBA",
@@ -160,6 +167,8 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NBA/Milwaukee Bucks vs Washington Wizards 2017-11-20.pdf"
 }));
 
+//NBA, Not Visited
+
 //MLB, Visited
 locations.push(new SportsLocation({
 	league: "MLB", type: "MLB",
@@ -194,6 +203,11 @@ locations.push(new SportsLocation({
 }));
 
 //MLB, Not Visited
+locations.push(new SportsLocation({
+	league: "MLB", type: "MLB",
+	locationName: "PNC Park", sportsCity: "Pittsburgh", locationCity: "Pittsburgh, PA", 
+	latitude: "40.4468554", longitude: "-80.0059079"
+}));
 
 //NFL, Visited
 locations.push(new SportsLocation({
@@ -232,7 +246,7 @@ locations.push(new SportsLocation({
 	league: "NFL", type: "NFL",
 	locationName: "Lambeau Field", sportsCity: "Green Bay", locationCity: "Green Bay, WI", 
 	latitude: "44.501341", longitude: "-88.062208",
-	gameName: "Green Bay Packers vs Baltimore Ravens", date: "11/28/2017", gameDescription: "Regular Season Game",
+	gameName: "Green Bay Packers vs Baltimore Ravens", date: "11/19/2017", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NFL/Green Bay Packers vs Baltimore Ravens 2017-11-19.pdf"
 }));
 
