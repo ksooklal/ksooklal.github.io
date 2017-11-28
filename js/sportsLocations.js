@@ -243,13 +243,22 @@ locations.push(new SportsLocation({
 //NHL, Visited
 //NHL, Not Visited
 
-//NCAA, Visited
+//NCAABB, Visited
 locations.push(new SportsLocation({
 	league: "NCAABB", type: "NCAABB",
-	locationName: "Xfinity Center", sportsCity: "College Park", locationCity: "College Park", 
+	locationName: "Xfinity Center", sportsCity: "College Park", locationCity: "College Park, MD", 
 	latitude: "38.9954727", longitude: "-76.9415108",
 	gameName: "Maryland Terrapins vs. Michigan State Spartans", date: "01/17/2015", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NCAA Basketball/Maryland Terrapins vs Michigan State 2016-01-17.pdf"
+}));
+
+//NCAAFB, Visited
+locations.push(new SportsLocation({
+	league: "NCAAFB", type: "NCAAFB",
+	locationName: "Spartan Stadium", sportsCity: "East Lansing", locationCity: "East Lansing, MI", 
+	latitude: "42.7281467", longitude: "-84.484852",
+	gameName: "Michigan State Spartans vs. Maryland Terrapins", date: "11/18/2017", gameDescription: "Regular Season Game",
+	ticketUrl: "../../Sports Travels/NCAA Football/Michigan State Spartans vs. Maryland Terrapins 2017-11-18.pdf"
 }));
 
 //NCAA, Not Visited
