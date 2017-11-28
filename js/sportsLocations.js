@@ -231,7 +231,7 @@ locations.push(new SportsLocation({
 locations.push(new SportsLocation({
 	league: "NFL", type: "NFL",
 	locationName: "Lambeau Field", sportsCity: "Green Bay", locationCity: "Green Bay, WI", 
-	latitude: "44.501345", longitude: "-88.06222",
+	latitude: "44.501341", longitude: "-88.062208",
 	gameName: "Green Bay Packers vs Baltimore Ravens", date: "11/28/2017", gameDescription: "Regular Season Game",
 	ticketUrl: "../../Sports Travels/NFL/Green Bay Packers vs Baltimore Ravens 2017-11-19.pdf"
 }));
