@@ -29,6 +29,7 @@ function SportsLocation(location) {
 	this.gameDescription = cleanUpString(location.gameDescription);
 	this.latitude = cleanUpString(location.latitude);
 	this.longitude = cleanUpString(location.longitude);
+	this.type = cleanUpString(location.type)
 }
 
 function getColorOfMarker(location){
@@ -39,23 +40,23 @@ function getColorOfMarker(location){
 		return WHITE;
 	}
 	
-	if (type === "NFL"){
+	if (type === "NFL" || league === "NFL"){
 		return PURPLE;
 	}
 	
-	if (type === "NBA"){
+	if (type === "NBA" || league === "NBA"){
 		return ORANGE;
 	}
 	
-	if (type === "MLB"){
+	if (type === "MLB" || league === "MLB"){
 		return YELLOW;
 	}
 	
-	if (type === "NHL"){
+	if (type === "NHL" || league === "NHL"){
 		return BLACK;
 	}
 	
-	if (type === "MLS"){
+	if (type === "MLS" || league === "MLS"){
 		return GREEN;
 	}
 	

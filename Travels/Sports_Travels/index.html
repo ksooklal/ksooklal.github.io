@@ -44,8 +44,13 @@
 				};
 			})();
 			
+			var majorSports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB"];
 			var sports = ["NFL", "NBA", "MLB", "NHL", "MLS", "NCAAFB", "NCAABB", "Other", "NotVisited"];
-			var NFLCount = 4;
+			var NotVisitedNFL = 0;
+			var NotVisitedNBA = 0;
+			var NotVisitedMLS = 0;
+			var NotVisitedMLB = 0;
+			var NotVisitedNHL = 0;
 			
 			var markerGroups =  {
 				"NFL": [],
@@ -68,6 +73,7 @@
 				var NCAAFBCount = allTickets["NCAAFB"].length;
 				var NCAABBCount = allTickets["NCAABB"].length;
 				var OtherCount = allTickets["Other"].length;
+				var NotVisitedCount = allTickets["NotVisited"].length;
 				
 				$("#nflCell").prop("title", "Visited: " + NFLCount + "/32");
 				$("#nbaCell").prop("title", "Visited: " + NBACount + "/30");
@@ -76,11 +82,40 @@
 				$("#mlbCell").prop("title", "Visited: " + MLBCount + "/30");
 				$("#ncaaFBCell").prop("title", "Visited: " + NCAAFBCount);
 				$("#ncaaBBCell").prop("title", "Visited: " + NCAABBCount);
-				$("#OtherCell").prop("title", "Visited: " + OtherCount);
+				$("#otherCell").prop("title", "Visited: " + OtherCount);
 				
+				$("#notVisitedCell").prop("title", "Not Visited: " + 
+					"NFL - " + NotVisitedNFL + 
+					", NBA - " + NotVisitedNBA + 
+					", MLS - " + NotVisitedMLS + 
+					", MLB - " + NotVisitedMLB + 
+					", NHL - " + NotVisitedNHL);
+						
 				var proLeagueSum = NFLCount + NBACount + NHLCount + MLSCount + MLBCount;
 				
 				$("#totalCell").html("<b>" + proLeagueSum + "/144</b>");
+				$("#totalCell").prop("title", "NFL - " + NFLCount + 
+					", NBA - " + NBACount + 
+					", MLS - " + MLSCount + 
+					", MLB - " + MLBCount + 
+					", NHL - " + NHLCount);
+			}
+			
+			function isMajorSport(sport) {
+				if (sport === undefined || 
+					sport == undefined || 
+					typeof(sport) === "undefined" || 
+					sport === null || 
+					sport == null || 
+					sport === ""){
+					return false;
+				}
+				for (var i = 0; i < majorSports.length; i++) {
+					if (majorSports[i] === sport) {
+						return true;
+					}
+				}
+				return false;
 			}
 
 			function initialize() {
@@ -90,23 +125,35 @@
 				for (var i = 0; i < locations.length; i++) {
 					var location = locations[i];
 					var type = location.type;
-					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null ||
-						type === ""){
-						type = location.league;
-						location.type = type;
-					}
-					if (type === undefined || type == undefined || typeof (type) === "undefined" || type === null || type == null
-						|| type === ""){
+					
+					if (!isMajorSport(type)){
 						type = "Other";
 						location.type = type;
 					}
+					
 					var url = location.ticketUrl;
+					
 					if (url === undefined || url == undefined || typeof (url) === "undefined" || url === null || url == null ||
 						url === ""){
+						if (isMajorSport(type)){
+							if (type === "NFL"){
+								NotVisitedNFL += 1;
+							} else if (type === "NBA"){
+								NotVisitedNBA += 1;
+							} else if (type === "MLS"){
+								NotVisitedMLS += 1;
+							} else if (type === "MLB"){
+								NotVisitedMLB += 1;
+							} else if (type === "NHL"){
+								NotVisitedNHL += 1;
+							}
+						}
 						type = "NotVisited";
 						location.type = type;
 					}
+					
 					var marker = createMarker(location);
+					
 					markerGroups[type].push(marker);
 					map.addMarker(marker);
 				}
@@ -241,7 +288,7 @@
 					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>			<td id = 'ncaaBBCell'><font color = '#CC0000'>NCAA Basketball</font></td></tr>
 					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')" checked="checked"></input></td><td><font size = '4' color = '#BFC9CA'><b>GREY</b></font></td>			<td id = 'otherCell'><font color = '#BFC9CA'>Other</font></td></tr>
 					<tr><td><input id="NotVisitedCheckbox" type="checkbox" onclick="toggleGroup('NotVisited')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>					<td id = 'notVisitedCell'><font color = 'white'>Not Yet Visited</font></td></tr>
-					<tr><td colspan = '2'><font size = '4' color = 'black'><b>TOTAL VISITED:</b></font></td><td id = 'totalCell' title = '(NFL, MLB, MLS, NBA, NHL)'></td></tr>
+					<tr><td colspan = '2'><font size = '4' color = 'black'><b>TOTAL VISITED:</b></font></td><td id = 'totalCell'></td></tr>
 					
 					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
 					<tr>

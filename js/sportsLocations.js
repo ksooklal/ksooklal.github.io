@@ -250,10 +250,195 @@ locations.push(new SportsLocation({
 	ticketUrl: "../../Sports Travels/NFL/Green Bay Packers vs Baltimore Ravens 2017-11-19.pdf"
 }));
 
-
-
 //NFL, Not Visited
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Heinz Field", sportsCity: "Pittsburgh", locationCity: "Pittsburgh, PA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
 
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Arrowhead Stadium", sportsCity: "Kansas City", locationCity: "Kansas City, MO", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Sports Authority Field", sportsCity: "Denver", locationCity: "Denver, CO", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Oakland Coliseum", sportsCity: "Oakland", locationCity: "Oakland, CA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "StubHub Center", sportsCity: "Los Angeles", locationCity: "Carson, CA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Gillette Stadium", sportsCity: "Boston", locationCity: "Foxborough, MA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Hard Rock Stadium", sportsCity: "Miami", locationCity: "Miami, FL", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "MetLife Stadium", sportsCity: "New York", locationCity: "East Rutherford, NJ", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "New Era Field", sportsCity: "Buffalo", locationCity: "Buffalo, NY", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "NRG Stadium", sportsCity: "Houston", locationCity: "Houston, TX", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Nissan Stadium", sportsCity: "Nashville", locationCity: "Nashville, TN", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "EverBank Field", sportsCity: "Jacksonville", locationCity: "Jacksonville, FL", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Lucas Oil Stadium", sportsCity: "Indianapolis", locationCity: "Indianapolis, IN", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "AT&T Stadium", sportsCity: "Dallas", locationCity: "Arlington, TX", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "MetLife Stadium", sportsCity: "New York", locationCity: "East Rutherford, NJ", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Lincoln Financial Field", sportsCity: "Philadelphia", locationCity: "Philadelphia, PA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "US Bank Stadium", sportsCity: "Minneapolis", locationCity: "Minneapolis, MN", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Ford Field", sportsCity: "Detroit", locationCity: "Detroit, MI", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Soldier Field", sportsCity: "Chicago", locationCity: "Chicago, IL", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Raymond James Stadium", sportsCity: "Tampa Bay", locationCity: "Tampa Bay, FL", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Bank of America Field", sportsCity: "Charlotte", locationCity: "Charlotte, NC", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Mercedez-Benz Stadium", sportsCity: "Atlanta", locationCity: "Atlanta, GA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Mercedez-Benz Superdome", sportsCity: "New Orleans", locationCity: "New Orleans, LA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "CenturyLink Stadium", sportsCity: "Seattle", locationCity: "Seattle, WA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "University of Phoenix Stadium", sportsCity: "Phoenix", locationCity: "Glendale, AZ", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Levi Stadium", sportsCity: "San Francisco", locationCity: "Santa Clara, CA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
+
+locations.push(new SportsLocation({
+	league: "NFL", type: "NFL",
+	locationName: "Los Angeles Memorial Coliseum", sportsCity: "Los Angeles", locationCity: "Los Angeles, CA", 
+	//latitude: "40.4468554", 
+	//longitude: "-80.0059079"
+}));
 //NHL, Visited
 //NHL, Not Visited
 
@@ -278,6 +463,16 @@ locations.push(new SportsLocation({
 //NCAA, Not Visited
 
 //Other, Visited
+locations.push(new SportsLocation({
+	league: "FIFA", type: "FIFA",
+	locationName: "Ato Bolton Stadium", sportsCity: "East Lansing", locationCity: "Couva, Trinidad and Tobago", 
+	latitude: "10.42482", longitude: "-61.418",
+	gameName: "Trinidad and Tobago vs. United States of America", date: "10/10/2017", gameDescription: "World Cup Qualifying 2018",
+	ticketUrl: "../../Sports Travels/USMNT/Trinidad & Tobago vs United States of America 2017-10-10.pdf"
+}));
+
+
+
 //Other, Not Visited
 
 /* locations.push(new SportsLocation({
