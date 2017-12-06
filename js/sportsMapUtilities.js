@@ -101,6 +101,7 @@ function createMarker(location) {
 		infowindow = new google.maps.InfoWindow({content: content});
 		infowindow.open(map, marker);
 	});
+	marker.league = location.league;
 	return marker;
 }
 

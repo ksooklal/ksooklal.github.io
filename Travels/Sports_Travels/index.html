@@ -90,7 +90,13 @@
 					", MLS - " + NotVisitedMLS + 
 					", MLB - " + NotVisitedMLB + 
 					", NHL - " + NotVisitedNHL);
-						
+				
+				$("#notVisitedNFLCell").prop("title", "Not Visited: " + NotVisitedNFL);
+				$("#notVisitedNBACell").prop("title", "Not Visited: " + NotVisitedNBA);
+				$("#notVisitedMLBCell").prop("title", "Not Visited: " + NotVisitedMLB);
+				$("#notVisitedNHLCell").prop("title", "Not Visited: " + NotVisitedNHL);
+				$("#notVisitedMLSCell").prop("title", "Not Visited: " + NotVisitedMLS);
+				
 				var proLeagueSum = NFLCount + NBACount + NHLCount + MLSCount + MLBCount;
 				
 				$("#totalCell").html("<b>" + proLeagueSum + "/144</b>");
@@ -173,6 +179,12 @@
 						marker.setVisible(false);
 					}
 				}
+				$("#NotVisitedNFLCheckbox").prop("checked", false);
+				$("#NotVisitedNBACheckbox").prop("checked", false);
+				$("#NotVisitedMLBCheckbox").prop("checked", false);
+				$("#NotVisitedNHLCheckbox").prop("checked", false);
+				$("#NotVisitedMLSCheckbox").prop("checked", false);
+				hideNotVisitedRows();
 			}
 			
 			function showAll(){
@@ -193,6 +205,19 @@
 				}
 			}
 			
+			function toggleNotVisitedGroup(type){
+				for (var i = 0; i < markerGroups["NotVisited"].length; i++){
+					var marker = markerGroups["NotVisited"][i];
+					if (marker.league == type){
+						if (!marker.getVisible()) {
+							marker.setVisible(true);
+						} else {
+							marker.setVisible(false);
+						}
+					}
+				}
+			}
+			
 			function toggleGroup(type) {
 				for (var i = 0; i < markerGroups[type].length; i++) {
 					var marker = markerGroups[type][i];
@@ -200,6 +225,24 @@
 						marker.setVisible(true);
 					} else {
 						marker.setVisible(false);
+					}
+				}
+				if (type === "NotVisited"){
+					if (markerGroups["NotVisited"].length > 0 && 
+						markerGroups["NotVisited"][0].getVisible()){
+						$("#NotVisitedNFLCheckbox").prop("checked", true);
+						$("#NotVisitedNBACheckbox").prop("checked", true);
+						$("#NotVisitedMLBCheckbox").prop("checked", true);
+						$("#NotVisitedNHLCheckbox").prop("checked", true);
+						$("#NotVisitedMLSCheckbox").prop("checked", true);
+						showNotVisitedRows();
+					} else {
+						$("#NotVisitedNFLCheckbox").prop("checked", false);
+						$("#NotVisitedNBACheckbox").prop("checked", false);
+						$("#NotVisitedMLBCheckbox").prop("checked", false);
+						$("#NotVisitedNHLCheckbox").prop("checked", false);
+						$("#NotVisitedMLSCheckbox").prop("checked", false);
+						hideNotVisitedRows();
 					}
 				}
 				if (checkIfAllDeselected()){
@@ -240,6 +283,12 @@
 					$("#" + sports[i] + "Checkbox").prop("checked", true);
 					$("#" + sports[i] + "Checkbox").attr("checked", true);
 				}
+				$("#NotVisitedNFLCheckbox").prop("checked", true);
+				$("#NotVisitedNBACheckbox").prop("checked", true);
+				$("#NotVisitedMLBCheckbox").prop("checked", true);
+				$("#NotVisitedNHLCheckbox").prop("checked", true);
+				$("#NotVisitedMLSCheckbox").prop("checked", true);
+				showNotVisitedRows();
 				showAll();
 			}
 			
@@ -248,7 +297,29 @@
 					$("#" + sports[i] + "Checkbox").prop("checked", false);
 					$("#" + sports[i] + "Checkbox").attr("checked", false);
 				}
+				$("#NotVisitedNFLCheckbox").prop("checked", false);
+				$("#NotVisitedNBACheckbox").prop("checked", false);
+				$("#NotVisitedMLBCheckbox").prop("checked", false);
+				$("#NotVisitedNHLCheckbox").prop("checked", false);
+				$("#NotVisitedMLSCheckbox").prop("checked", false);
+				hideNotVisitedRows();
 				hideAll();
+			}
+			
+			function showNotVisitedRows(){
+				$("#NotVisitedNFLRow").show();
+				$("#NotVisitedNBARow").show();
+				$("#NotVisitedMLBRow").show();
+				$("#NotVisitedNHLRow").show();
+				$("#NotVisitedMLSRow").show();
+			}
+			
+			function hideNotVisitedRows(){
+				$("#NotVisitedNFLRow").hide();
+				$("#NotVisitedNBARow").hide();
+				$("#NotVisitedMLBRow").hide();
+				$("#NotVisitedNHLRow").hide();
+				$("#NotVisitedMLSRow").hide();
 			}
 			
 			function reset(){
@@ -288,6 +359,28 @@
 					<tr><td><input id="NCAABBCheckbox" type="checkbox" onclick="toggleGroup('NCAABB')" checked="checked"></input></td><td><font size = '4' color = '#CC0000'><b>RED</b></font></td>			<td id = 'ncaaBBCell'><font color = '#CC0000'>NCAA Basketball</font></td></tr>
 					<tr><td><input id="OtherCheckbox" type="checkbox" onclick="toggleGroup('Other')" checked="checked"></input></td><td><font size = '4' color = '#BFC9CA'><b>GREY</b></font></td>			<td id = 'otherCell'><font color = '#BFC9CA'>Other</font></td></tr>
 					<tr><td><input id="NotVisitedCheckbox" type="checkbox" onclick="toggleGroup('NotVisited')"></input></td><td><font size = '4' color = 'white'><b>WHITE</b></font></td>					<td id = 'notVisitedCell'><font color = 'white'>Not Yet Visited</font></td></tr>
+					
+					<tr id = 'NotVisitedNFLRow'>
+						<td></td>
+						<td colspan = '2' id = 'notVisitedNFLCell'><input id="NotVisitedNFLCheckbox" type="checkbox" onclick="toggleNotVisitedGroup('NFL')"></input><font color = 'white'>NFL</font></td>
+					</tr>
+					<tr id = 'NotVisitedNBARow'>
+						<td></td>
+						<td colspan = '2' id = 'notVisitedNBACell'><input id="NotVisitedNBACheckbox" type="checkbox" onclick="toggleNotVisitedGroup('NBA')"></input><font color = 'white'>NBA</font></td>
+					</tr>
+					<tr id = 'NotVisitedMLBRow'>
+						<td></td>
+						<td colspan = '2' id = 'notVisitedMLBCell'><input id="NotVisitedMLBCheckbox" type="checkbox" onclick="toggleNotVisitedGroup('MLB')"></input><font color = 'white'>MLB</font></td>
+					</tr>
+					<tr id = 'NotVisitedNHLRow'>
+						<td></td>
+						<td colspan = '2' id = 'notVisitedNHLCell'><input id="NotVisitedNHLCheckbox" type="checkbox" onclick="toggleNotVisitedGroup('NHL')"></input><font color = 'white'>NHL</font></td>
+					</tr>
+					<tr id = 'NotVisitedMLSRow'>
+						<td></td>
+						<td colspan = '2' id = 'notVisitedMLSCell'><input id="NotVisitedMLSCheckbox" type="checkbox" onclick="toggleNotVisitedGroup('MLS')"></input><font color = 'white'>MLS</font></td>
+					</tr>
+					
 					<tr><td colspan = '2'><font size = '4' color = 'black'><b>TOTAL VISITED:</b></font></td><td id = 'totalCell'></td></tr>
 					
 					<tr><td colspan = '3'><font size = '3'>&nbsp;</font></td></tr>
@@ -305,6 +398,8 @@
 			</td>
 		</tr></table>
 		<!-- 
+			Credit to https://www.latlong.net for providing easy conversion of Stadium Names to Latitude and Longitudes
+		
 			Credit to http://jsfiddle.net/YEPB7/6/ for providing a simple way of toggling Google API Markers with checkboxes.
 			
 			Credit to Google Maps for providing a simple API for custom colored Google Maps Markers. http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569
