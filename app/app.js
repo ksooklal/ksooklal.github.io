@@ -12,7 +12,7 @@ myAppModule.controller("IndexController", [
 			$(window).scrollTo("#" + targetID);
 		};
 		
-		this.domainName = "kristiansooklal.me";
+		this.domainName = "ksooklal.com";
 		
 		this.projects = [
 			{
@@ -68,7 +68,7 @@ myAppModule.controller("IndexController", [
 				projectID: "AddressConversionUtility",
 				projectName: "Address Conversion Utility",
 				projectLink: "https://github.com/ksooklal/AddressConversionUtility",
-				projectDescription: "Converts a street address to latitude/longitude coordinates. View <a href = 'http://kristiansooklal.me/AddressConversionUtility/'>demo</a>",
+				projectDescription: "Converts a street address to latitude/longitude coordinates. View <a href = 'http://www.ksooklal.com/AddressConversionUtility/'>demo</a>",
 				projectTechnologies: "JavaScript, XML, Ajax"
 			}
 		];
