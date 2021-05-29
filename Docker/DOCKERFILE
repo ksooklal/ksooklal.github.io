@@ -1,7 +1,7 @@
 #DOCKER FILE
 
 FROM openjdk
-MAINTAINER Kristian Sooklal <k.sooklal@yahoo.com>
+MAINTAINER Kris Sooklal <k.sooklal@yahoo.com>
 
 run rm -f *.class
 

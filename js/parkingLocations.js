@@ -1,12 +1,6 @@
 var locations = [];
 locations.push(new Location({locationName: "Work", locationType: "Work", latitude: 38.9005, longitude: -77.008, locationAddress: "820 First Street NE Washington DC 20002"}));
-locations.push(new Location({locationName: "Kristian", locationType: "Home", latitude: 38.9931229, longitude: -77.0234289, locationAddress: "815 Thayer Avenue Apt 520 Silver Spring MD 20910"}));
-locations.push(new Location({locationName: "Baxter", locationType: "Home", latitude: 38.90051, longitude: -77.01837, locationAddress: "450 Massachusetts Avenue Northwest Washington DC 20001"}));
-locations.push(new Location({locationName: "Alex Chan", locationType: "Home", latitude: 38.846505, longitude: -77.084493, locationAddress: "3467 25th Court South Arlington VA 22206"}));
-locations.push(new Location({locationName: "Salvador", locationType: "Home", latitude: 38.831613, longitude: -76.910765, locationAddress: "5560 Lanier Ave Suitland MD 20746"}));
-
-
-
+locations.push(new Location({locationName: "Kris", locationType: "Home", latitude: 38.9931229, longitude: -77.0234289, locationAddress: "815 Thayer Avenue Apt 520 Silver Spring MD 20910"}));
 
 locations.push(new Location({locationName: "Broken Meter", locationType: "Parking", latitude: 38.899884, longitude: -77.006889, locationAddress: "750 First Street NE Washington DC 20002", parkingDescription: new ParkingDescription({timeRestriction: 2})}));
 locations.push(new Location({locationName: "Pierce St NE & First St NE", locationType: "Parking", latitude: 38.9046994, longitude: -77.0062291, locationAddress: "88 Pierce Street NE Washington DC 20002", parkingDescription: new ParkingDescription({})}));
